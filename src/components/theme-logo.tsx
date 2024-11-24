@@ -10,7 +10,7 @@ export default function ThemeLogo() {
 
     return (
         <Image
-            src={theme === "dark" ? LogoDark : LogoLight}
+            src={theme === "light" ? LogoLight : LogoDark}
             alt="Logo"
             width={200}
             height={40}
