@@ -2,8 +2,8 @@
 
 import { useTheme } from "next-themes";
 import Image from "next/image";
-import LogoDark from "../public/logo-dark-mode.png";
-import LogoLight from "../public/logo-light-mode.png";
+import LogoDark from "/public/logo-dark-mode.png";
+import LogoLight from "/public/logo-light-mode.png";
 
 export default function ThemeLogo() {
     const { theme } = useTheme();
