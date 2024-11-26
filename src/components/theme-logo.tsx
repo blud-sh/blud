@@ -7,14 +7,17 @@ import LogoLight from "/public/logo-light-mode.png";
 
 export default function ThemeLogo() {
     const { theme } = useTheme();
+    const resolvedTheme = (theme === "system" ? "dark" : theme) as
+        | "light"
+        | "dark";
 
     return (
         <Image
-            src={theme === "light" ? LogoLight : LogoDark}
+            src={resolvedTheme === "light" ? LogoLight : LogoDark}
             alt="Logo"
             width={200}
-            height={40}
             className="object-contain"
+            priority={true} // Avoid lazy loading
         />
     );
 }
