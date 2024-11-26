@@ -2,17 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap");
-
-.space-grotesk-<uniquifier > {
-    font-family: "Space Grotesk", serif;
-    font-optical-sizing: auto;
-    font-weight: <weight>;
-    font-style: normal;
+@font-face {
+    font-family: "Space Grotesk";
+    src: url("/fonts/SpaceGrotesk.ttf");
 }
 
 body {
-    font-family: "Space Grotesk", Arial, Helvetica, sans-serif;
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 500;
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -33,7 +30,7 @@ body {
         --card-foreground: 0 0% 0%;
 
         --popover: 0 0% 100%;
-        --popover-foreground: 0 0% 0%;
+        --popover-foreground: 0 0% 5%;
 
         --primary: 0 0% 9%;
         --primary-foreground: 0 0% 98%;
@@ -58,14 +55,14 @@ body {
     }
 
     .dark {
-        --background: 0 0% 0%;
+        --background: 0 0% 100%;
         --foreground: 0 0% 98%;
 
         --card: 0 0% 3.9%;
         --card-foreground: 0 0% 98%;
 
-        --popover: 0 0% 3.9%;
-        --popover-foreground: 0 0% 98%;
+        --popover: 0 0% 90%;
+        --popover-foreground: 0 0% 3.9%;
 
         --primary: 0 0% 98%;
         --primary-foreground: 0 0% 9%;
@@ -76,8 +73,8 @@ body {
         --muted: 0 0% 14.9%;
         --muted-foreground: 0 0% 63.9%;
 
-        --accent: 0 0% 14.9%;
-        --accent-foreground: 0 0% 98%;
+        --accent: 0 0% 100%;
+        --accent-foreground: 0 0% 14.9%;
 
         --destructive: 0 62.8% 30.6%;
         --destructive-foreground: 0 0% 98%;
