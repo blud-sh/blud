@@ -1,5 +1,5 @@
 import { Config } from "tailwindcss";
-// @ts-ignore
+// @ts-expect-error - TailwindCSS doesn't have types for this package
 import flattenColorPalette from "tailwindcss/lib/util/flattenColorPalette";
 import tailwindcssAnimate from "tailwindcss-animate";
 
@@ -70,8 +70,6 @@ const config: Config = {
                     4: "hsl(var(--chart-4))",
                     5: "hsl(var(--chart-5))",
                 },
-                main: "#D9D9D9",
-                text: "#767676",
             },
         },
     },
@@ -79,7 +77,6 @@ const config: Config = {
 };
 
 // This plugin adds each Tailwind color as a global CSS variable, e.g. var(--gray-200).
-// @ts-ignore
 function addVariablesForColors({ addBase, theme }: any) {
     const allColors = flattenColorPalette(theme("colors"));
     const newVars = Object.fromEntries(
