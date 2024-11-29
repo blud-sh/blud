@@ -1,5 +1,7 @@
 "use client";
 
+import HeroSection from "@/components/hero-section";
+
 export default function Home() {
-    return <h1 className="text-foreground">landing page</h1>;
+    return <HeroSection />;
 }
