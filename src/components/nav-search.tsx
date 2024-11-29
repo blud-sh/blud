@@ -51,7 +51,7 @@ export default function NavSearch() {
                                 className="w-full py-3 text-sm text-gray-900 placeholder-gray-400 bg-transparent border-0 focus:outline-none focus:ring-0 dark:text-white"
                             />
                         </div>
-                        <Command.List className="max-h-[300px] overflow-y-auto p-2">
+                        <Command.List className="max-h-[18.75rem] overflow-y-auto p-2">
                             <Command.Empty className="py-6 text-sm text-center text-gray-400 dark:text-gray-500">
                                 No results found.
                             </Command.Empty>
