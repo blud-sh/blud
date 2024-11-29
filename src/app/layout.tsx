@@ -19,7 +19,7 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body className="antialiased">
+            <body className="antialiased bg-zinc-50 dark:bg-zinc-900">
                 <ThemeProvider
                     attribute="class"
                     defaultTheme="dark"
