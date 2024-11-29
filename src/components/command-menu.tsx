@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import {
     CommandDialog,
     CommandEmpty,
@@ -10,20 +9,13 @@ import {
     CommandList,
 } from "@/components/ui/command";
 
-export default function CommandMenu() {
-    const [open, setOpen] = useState(false);
-
-    useEffect(() => {
-        const down = (e: globalThis.KeyboardEvent) => {
-            if (e.key === "k" && (e.metaKey || e.ctrlKey)) {
-                e.preventDefault();
-                setOpen((open) => !open);
-            }
-        };
-
-        document.addEventListener("keydown", down);
-        return () => document.removeEventListener("keydown", down);
-    }, []);
+export default function CommandMenu({
+    open,
+    setOpen,
+}: {
+    open: boolean;
+    setOpen: (open: boolean) => void;
+}) {
     return (
         <CommandDialog open={open} onOpenChange={setOpen}>
             <CommandInput placeholder="Type a command or search..." />

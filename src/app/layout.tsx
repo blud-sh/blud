@@ -6,7 +6,6 @@ import { ModeToggle } from "@/components/mode-toggle";
 import NavSearch from "@/components/nav-search";
 import HeaderAuth from "@/components/header-auth";
 import ThemeLogo from "@/components/theme-logo";
-import CommandMenu from "@/components/command-menu";
 
 export const metadata: Metadata = {
     title: "Unicon",
@@ -40,8 +39,7 @@ export default function RootLayout({
                                 <HeaderAuth />
                             </div>
                         </nav>
-                        <main>{children}</main>
-                        <CommandMenu />
+                        <main className="dark:text-white">{children}</main>
                     </AuroraBackground>
                 </ThemeProvider>
             </body>
