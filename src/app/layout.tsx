@@ -32,14 +32,14 @@ export default function RootLayout({
                         </div>
                         <div className="fixed inset-0 z-10 noise-background"></div>
                         <div className="relative z-20">
-                            <nav className="flex items-center justify-between fixed top-0 w-full px-6 py-4 z-30 bg-transparent">
-                                <div className="flex items-center w-[12.5rem]">
+                            <nav className="flex items-center justify-between fixed top-0 w-full px-4 sm:px-6 py-4 z-30 bg-transparent">
+                                <div className="flex items-center w-24 sm:w-[12.5rem]">
                                     <ThemeLogo />
                                 </div>
-                                <div className="hidden md:flex flex-1 justify-center max-w-[37.5rem] mx-4">
+                                <div className="hidden md:flex flex-1 justify-center max-w-[37.5rem] mx-2 lg:mx-4">
                                     <NavSearch />
                                 </div>
-                                <div className="flex items-center gap-4 w-[12.5rem] justify-end">
+                                <div className="flex items-center gap-2 sm:gap-4 justify-end">
                                     <ModeToggle />
                                     <HeaderAuth />
                                 </div>

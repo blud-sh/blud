@@ -1,10 +1,13 @@
-import React from "react";
-import { Button } from "./ui/button";
+import React from 'react';
+import { Button } from '@/components/ui/button';
 
 export default function HeaderAuth() {
     return (
         <div>
-            <Button variant="outline" className="focus-visible:ring-0">
+            <Button
+                variant="outline"
+                className="w-[70px] sm:w-auto focus-visible:ring-0"
+            >
                 Sign In
             </Button>
         </div>
