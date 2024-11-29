@@ -57,17 +57,17 @@ const items = [
 ];
 
 export default function Home() {
-    // return <HeroSection />;
     return (
         <>
             <HeroSection />
-            <InfiniteMovingCards
-                items={items}
-                direction="left"
-                pauseOnHover={false}
-                speed="slow"
-                className="rounded-md flex flex-col antialiased dark:bg-grid-white/[0.05] items-center justify-center relative overflow-hidden"
-            />
+            <div className="py-12">
+                <InfiniteMovingCards
+                    items={items}
+                    direction="left"
+                    speed="slow"
+                    className="py-20"
+                />
+            </div>
         </>
     );
 }

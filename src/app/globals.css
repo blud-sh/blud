@@ -28,6 +28,7 @@ body {
 
         --card: 0 0% 100%;
         --card-foreground: 0 0% 0%;
+        --card-bg: #ffffff;
 
         --popover: 0 0% 100%;
         --popover-foreground: 0 0% 5%;
@@ -54,12 +55,13 @@ body {
         --radius: 0.5rem;
     }
 
-    dark {
+    .dark {
         --background: 222.2 84% 4.9%;
         --foreground: 210 40% 98%;
 
         --card: 222.2 84% 4.9%;
         --card-foreground: 210 40% 98%;
+        --card-bg: #1a1a1a;
 
         --popover: 222.2 84% 4.9%;
         --popover-foreground: 210 40% 98%;
