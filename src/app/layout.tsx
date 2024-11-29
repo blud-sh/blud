@@ -1,15 +1,15 @@
-import type { Metadata } from "next";
-import "./globals.css";
-import { ThemeProvider } from "@/components/theme-provider";
-import { AuroraBackground } from "@/components/ui/aurora-background";
-import { ModeToggle } from "@/components/mode-toggle";
-import NavSearch from "@/components/nav-search";
-import HeaderAuth from "@/components/header-auth";
-import ThemeLogo from "@/components/theme-logo";
+import type { Metadata } from 'next';
+import './globals.css';
+import { ThemeProvider } from '@/components/theme-provider';
+import { AuroraBackground } from '@/components/ui/aurora-background';
+import { ModeToggle } from '@/components/mode-toggle';
+import NavSearch from '@/components/nav-search';
+import HeaderAuth from '@/components/header-auth';
+import ThemeLogo from '@/components/theme-logo';
 
 export const metadata: Metadata = {
-    title: "Unicon",
-    description: "A platform for all your educational needs",
+    title: 'Unicon',
+    description: 'A platform for all your educational needs',
 };
 
 export default function RootLayout({
@@ -27,11 +27,12 @@ export default function RootLayout({
                     disableTransitionOnChange
                 >
                     <div className="relative min-h-screen">
-                        <div className="absolute inset-0 z-0">
+                        <div className="fixed inset-0 z-0">
                             <AuroraBackground />
                         </div>
-                        <div className="relative z-10">
-                            <nav className="flex items-center justify-between fixed top-0 w-full px-6 py-4 z-50 bg-transparent">
+                        <div className="fixed inset-0 z-10 noise-background"></div>
+                        <div className="relative z-20">
+                            <nav className="flex items-center justify-between fixed top-0 w-full px-6 py-4 z-30 bg-transparent">
                                 <div className="flex items-center w-[12.5rem]">
                                     <ThemeLogo />
                                 </div>

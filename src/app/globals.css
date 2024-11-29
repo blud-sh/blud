@@ -3,12 +3,12 @@
 @tailwind utilities;
 
 @font-face {
-    font-family: "Space Grotesk";
-    src: url("/fonts/SpaceGrotesk.ttf");
+    font-family: 'Space Grotesk';
+    src: url('/fonts/SpaceGrotesk.ttf');
 }
 
 body {
-    font-family: "Space Grotesk", sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
     font-weight: 500;
     padding: 0;
     margin: 0;
@@ -101,7 +101,8 @@ body {
         box-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
     }
     50% {
-        box-shadow: 0 0 20px rgba(255, 255, 255, 0.5), 0 0 30px rgba(255, 255, 255, 0.3);
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.5),
+            0 0 30px rgba(255, 255, 255, 0.3);
     }
     100% {
         box-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
@@ -110,5 +111,17 @@ body {
 
 .group:hover {
     animation: glow 2s infinite;
+}
+
+.noise-background {
+    background-image: url('/noise.webp');
+    opacity: 0.1;
+    mix-blend-mode: multiply;
+    pointer-events: none;
+}
+
+.dark .noise-background {
+    opacity: 0.2;
+    mix-blend-mode: soft-light;
 }
 
