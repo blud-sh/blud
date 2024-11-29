@@ -1,22 +1,27 @@
-'use client';
+"use client";
 
-import React, { useState, useEffect } from 'react';
-import { Command } from 'cmdk';
-import { Search } from 'lucide-react';
+import React, { useState, useEffect } from "react";
+import { Command } from "cmdk";
+import { Search } from "lucide-react";
 
 export default function NavSearch() {
     const [open, setOpen] = useState(false);
 
     useEffect(() => {
         const down = (e: KeyboardEvent) => {
-            if (e.key === 'k' && (e.metaKey || e.ctrlKey)) {
+            if (e.key === "k" && (e.metaKey || e.ctrlKey)) {
                 e.preventDefault();
                 setOpen((open) => !open);
             }
+
+            if (e.key == "Escape") {
+                e.preventDefault();
+                setOpen(false);
+            }
         };
 
-        document.addEventListener('keydown', down);
-        return () => document.removeEventListener('keydown', down);
+        document.addEventListener("keydown", down);
+        return () => document.removeEventListener("keydown", down);
     }, []);
 
     return (

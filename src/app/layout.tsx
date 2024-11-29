@@ -1,15 +1,15 @@
-import type { Metadata } from 'next';
-import './globals.css';
-import { ThemeProvider } from '@/components/theme-provider';
-import { AuroraBackground } from '@/components/ui/aurora-background';
-import { ModeToggle } from '@/components/mode-toggle';
-import NavSearch from '@/components/nav-search';
-import HeaderAuth from '@/components/header-auth';
-import ThemeLogo from '@/components/theme-logo';
+import type { Metadata } from "next";
+import "./globals.css";
+import { ThemeProvider } from "@/components/theme-provider";
+import { AuroraBackground } from "@/components/ui/aurora-background";
+import { ModeToggle } from "@/components/mode-toggle";
+import NavSearch from "@/components/nav-search";
+import HeaderAuth from "@/components/header-auth";
+import ThemeLogo from "@/components/theme-logo";
 
 export const metadata: Metadata = {
-    title: 'Unicon',
-    description: 'A platform for all your educational needs',
+    title: "Unicon",
+    description: "A platform for all your educational needs",
 };
 
 export default function RootLayout({
