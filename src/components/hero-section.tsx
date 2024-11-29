@@ -5,7 +5,7 @@ export default function HeroSection() {
         <div className="flex flex-col items-center justify-center min-h-screen text-center px-4">
             <div className="mb-8 mt-20">
                 <h1 className="text-[6px] sm:text-[80px] md:text-8xl font-bold leading-tight">
-                    <span className="block text-[#898989]">Lost?S</span>
+                    <span className="block text-[#898989]">Lost?</span>
                     <span className="block">You&apos;ve already arrived.</span>
                 </h1>
             </div>
