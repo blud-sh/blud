@@ -8,7 +8,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![GitHub Stars](https://img.shields.io/github/stars/Ethics03/UniCon.svg)](https://github.com/Ethics03/UniCon/stargazers)
-[![GitHub Forks](https://img.shields.io/github/forks/Ethics03/UniCon/network/members.svg)](https://github.com/Ethics03/UniCon/network/members)
+[![GitHub Forks](https://img.shields.io/github/forks/Ethics03/UniCon)](https://github.com/Ethics03/UniCon/forks)
 
 </div>
 
