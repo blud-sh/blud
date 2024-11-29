@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import {
     CommandDialog,
@@ -7,7 +7,7 @@ import {
     CommandInput,
     CommandItem,
     CommandList,
-} from "@/components/ui/command";
+} from '@/components/ui/command';
 
 export default function CommandMenu({
     open,
