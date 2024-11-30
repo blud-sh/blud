@@ -66,9 +66,6 @@ export default function Home() {
         offset: ["start start", "end end"]
     });
 
-    const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [0.5, 1, 0.5]);
-    const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.8, 1, 0.8]);
-
     return (
         <motion.div 
             ref={ref} 
