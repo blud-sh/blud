@@ -1,6 +1,7 @@
 "use client";
 
 import HeroSection from "@/components/hero-section";
+import Steps from "@/components/steps";
 import { InfiniteMovingCards } from "@/components/ui/moving-cards";
 
 const items = [
@@ -68,6 +69,7 @@ export default function Home() {
                     className="py-20"
                 />
             </div>
+            <Steps />
         </>
     );
 }
