@@ -61,10 +61,7 @@ const items = [
 
 export default function Home() {
     const ref = useRef(null);
-    const { scrollYProgress } = useScroll({
-        target: ref,
-        offset: ["start start", "end end"]
-    });
+
 
     return (
         <motion.div 
