@@ -6,12 +6,10 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 
 export default function Steps() {
     return (
-        <div className="container mx-auto px-4 md:px-8 lg:px-16 xl:px-28 py-12 overflow-hidden">
-            <div className="space-y-32 md:space-y-48 lg:space-y-64 text-[#333333]">
-                <StepItem number="01" imagePosition="right" />
-                <StepItem number="02" imagePosition="left" />
-                <StepItem number="03" imagePosition="right" />
-            </div>
+        <div className="space-y-32 md:space-y-48 lg:space-y-64">
+            <StepItem number="01" imagePosition="right" />
+            <StepItem number="02" imagePosition="left" />
+            <StepItem number="03" imagePosition="right" />
         </div>
     );
 }
@@ -41,6 +39,7 @@ function StepItem({
                 isLeft={imagePosition === 'left'}
                 y={y}
                 opacity={opacity}
+                className="w-full md:w-1/2 flex justify-center items-center"
             >
                 {imagePosition === 'left' ? (
                     <Image
@@ -60,6 +59,7 @@ function StepItem({
                 isLeft={imagePosition !== 'left'}
                 y={y}
                 opacity={opacity}
+                className="w-full md:w-1/2 flex justify-center items-center"
             >
                 {imagePosition === 'right' ? (
                     <Image
@@ -84,15 +84,17 @@ function AnimatedElement({
     isLeft,
     y,
     opacity,
+    className,
 }: {
     children: React.ReactNode;
     isLeft: boolean;
     y: any;
     opacity: any;
+    className?: string;
 }) {
     return (
         <motion.div
-            className={`w-full md:w-1/2 ${isLeft ? 'md:pr-8' : 'md:pl-8'}`}
+            className={`${className} ${isLeft ? 'md:pr-8' : 'md:pl-8'}`}
             style={{ y, opacity }}
             initial={{ y: 100, opacity: 0 }}
             transition={{ duration: 0.8, ease: 'easeOut' }}
