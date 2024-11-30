@@ -1,12 +1,13 @@
-"use client";
+'use client';
 
-import { cn } from "@/lib/utils";
-import React, { useEffect, useState } from "react";
+import { cn } from '@/lib/utils';
+import React, { useEffect, useState, useRef } from 'react';
+import { CardSpotlight } from './card-spotlight';
 
 export const InfiniteMovingCards = ({
     items,
-    direction = "left",
-    speed = "fast",
+    direction = 'left',
+    speed = 'fast',
     pauseOnHover = true,
     className,
 }: {
@@ -15,110 +16,112 @@ export const InfiniteMovingCards = ({
         name: string;
         title: string;
     }[];
-    direction?: "left" | "right";
-    speed?: "fast" | "normal" | "slow";
+    direction?: 'left' | 'right';
+    speed?: 'fast' | 'normal' | 'slow';
     pauseOnHover?: boolean;
     className?: string;
 }) => {
-    const containerRef = React.useRef<HTMLDivElement>(null);
-    const scrollerRef = React.useRef<HTMLUListElement>(null);
+    const containerRef = useRef<HTMLDivElement>(null);
+    const scrollerRef = useRef<HTMLUListElement>(null);
 
     useEffect(() => {
-        const getDirection = () => {
-            if (containerRef.current) {
-                if (direction === "left") {
-                    containerRef.current.style.setProperty(
-                        "--animation-direction",
-                        "forwards"
-                    );
-                } else {
-                    containerRef.current.style.setProperty(
-                        "--animation-direction",
-                        "reverse"
-                    );
+        addAnimation();
+    }, [direction, speed, items]);
+
+    const [start, setStart] = useState(false);
+
+    function addAnimation() {
+        if (containerRef.current && scrollerRef.current) {
+            const scrollerContent = Array.from(scrollerRef.current.children);
+
+            scrollerContent.forEach((item) => {
+                const duplicatedItem = item.cloneNode(true);
+                if (scrollerRef.current) {
+                    scrollerRef.current.appendChild(duplicatedItem);
                 }
-            }
-        };
-        const getSpeed = () => {
-            if (containerRef.current) {
-                if (speed === "fast") {
-                    containerRef.current.style.setProperty(
-                        "--animation-duration",
-                        "20s"
-                    );
-                } else if (speed === "normal") {
-                    containerRef.current.style.setProperty(
-                        "--animation-duration",
-                        "40s"
-                    );
-                } else {
-                    containerRef.current.style.setProperty(
-                        "--animation-duration",
-                        "80s"
-                    );
-                }
-            }
-        };
-        function addAnimation() {
-            if (containerRef.current && scrollerRef.current) {
-                const scrollerContent = Array.from(
-                    scrollerRef.current.children
+            });
+
+            getDirection();
+            getSpeed();
+            setStart(true);
+        }
+    }
+
+    const getDirection = () => {
+        if (containerRef.current) {
+            if (direction === 'left') {
+                containerRef.current.style.setProperty(
+                    '--animation-direction',
+                    'forwards'
                 );
-
-                scrollerContent.forEach((item) => {
-                    const duplicatedItem = item.cloneNode(true);
-                    if (scrollerRef.current) {
-                        scrollerRef.current.appendChild(duplicatedItem);
-                    }
-                });
-
-                getDirection();
-                getSpeed();
-                setStart(true);
+            } else {
+                containerRef.current.style.setProperty(
+                    '--animation-direction',
+                    'reverse'
+                );
             }
         }
-        addAnimation();
-    }, [direction, speed]);
-    const [start, setStart] = useState(false);
+    };
+
+    const getSpeed = () => {
+        if (containerRef.current) {
+            if (speed === 'fast') {
+                containerRef.current.style.setProperty(
+                    '--animation-duration',
+                    '20s'
+                );
+            } else if (speed === 'normal') {
+                containerRef.current.style.setProperty(
+                    '--animation-duration',
+                    '40s'
+                );
+            } else {
+                containerRef.current.style.setProperty(
+                    '--animation-duration',
+                    '80s'
+                );
+            }
+        }
+    };
 
     return (
         <div
             ref={containerRef}
             className={cn(
-                "scroller relative z-20 overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)] dark:[mask-image:linear-gradient(to_right,transparent,black_20%,black_80%,transparent)]",
+                'scroller relative z-20 max-w-7xl mx-auto overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]',
                 className
             )}
         >
             <ul
                 ref={scrollerRef}
                 className={cn(
-                    "flex min-w-full shrink-0 gap-4 py-4 w-max flex-nowrap",
-                    start && "animate-scroll ",
-                    pauseOnHover && "hover:[animation-play-state:paused]"
+                    'flex min-w-full shrink-0 gap-4 py-4 w-max flex-nowrap',
+                    start && 'animate-scroll',
+                    pauseOnHover && 'hover:[animation-play-state:paused]'
                 )}
             >
                 {items.map((item, idx) => (
                     <li
-                        className="w-[263px] h-[250px] max-w-full relative rounded-[35px] flex-shrink-0 border border-gray-200 dark:border-gray-800 px-8 py-6 transition-all duration-300 ease-in-out hover:shadow-lg hover:scale-105 group bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm"
-                        style={{
-                            background: "var(--card-bg)",
-                        }}
+                        className="w-[283px] h-[260px] max-w-full relative flex-shrink-0"
                         key={idx}
                     >
-                        
-                        <blockquote className="h-full flex flex-col justify-between relative z-10">
-                            <span className="relative z-20 text-sm leading-[1.6] text-gray-800 dark:text-gray-200 font-normal line-clamp-5 group-hover:text-gray-900 dark:group-hover:text-white transition-colors duration-300">
-                                {item.quote}
-                            </span>
-                            <div className="relative z-20 mt-6 flex flex-col gap-1">
-                                <span className="text-sm leading-[1.6] text-gray-900 dark:text-gray-100 font-medium group-hover:text-gray-900 dark:group-hover:text-white transition-colors duration-300">
-                                    {item.name}
-                                </span>
-                                <span className="text-sm leading-[1.6] text-gray-600 dark:text-gray-400 font-normal group-hover:text-gray-800 dark:group-hover:text-gray-200 transition-colors duration-300">
-                                    {item.title}
-                                </span>
+                        <CardSpotlight className="h-full">
+                            <div className="h-full p-6 rounded-[35px]">
+                                <blockquote className="h-full flex flex-col justify-between">
+                                    <p className="text-lg leading-[1.6] text-gray-700 dark:text-gray-300 font-normal mb-4">
+                                        {item.quote}
+                                    </p>
+                                    <footer className="mt-auto">
+                                        <p className="text-base font-semibold text-gray-900 dark:text-white">
+                                            {item.name}
+                                        </p>
+                                        <p className="text-sm text-gray-600 dark:text-gray-400">
+                                            {item.title}
+                                        </p>
+                                    </footer>
+                                </blockquote>
                             </div>
-                        </blockquote>
+                        </CardSpotlight>
                     </li>
                 ))}
             </ul>

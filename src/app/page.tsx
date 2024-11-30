@@ -37,31 +37,10 @@ const items = [
         name: "Sarah Wilson",
         title: "Project Manager, BuildIt Inc.",
     },
-    {
-        quote: "Highly impressed by the professionalism and dedication of the team. Will definitely return for future projects.",
-        name: "David Lee",
-        title: "Software Engineer, CodeWave",
-    },
-    {
-        quote: "Their innovative approach and commitment to customer satisfaction are second to none.",
-        name: "Chris Evans",
-        title: "Director of Operations, NextGen Solutions",
-    },
-    {
-        quote: "Exceptional service with a personal touch. The results speak for themselves.",
-        name: "Jessica Martinez",
-        title: "Entrepreneur",
-    },
-    {
-        quote: "The perfect solution to our needs. Efficient, reliable, and affordable.",
-        name: "Brian Thompson",
-        title: "Finance Analyst, MoneyMatters",
-    },
 ];
 
 export default function Home() {
     const ref = useRef(null);
-
 
     return (
         <motion.div 
