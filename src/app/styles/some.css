@@ -1,0 +1,98 @@
+.button--calypso {
+    overflow: hidden;
+    font-size: 1rem;
+    border-radius: 39px;
+    color: #000;
+    background: #d9d9d9;
+    position: relative;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: color 0.4s;
+}
+
+.button--calypso span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 10;
+    white-space: nowrap;
+}
+
+.button--calypso:hover {
+    color: #fff;
+}
+
+.button--calypso:hover span {
+    animation: MoveScaleUpInitial 0.3s forwards,
+        MoveScaleUpEnd 0.3s forwards 0.3s;
+}
+
+@keyframes MoveScaleUpInitial {
+    to {
+        transform: translate3d(0, -105%, 0) scale3d(1, 2, 1);
+        opacity: 0;
+    }
+}
+
+@keyframes MoveScaleUpEnd {
+    from {
+        transform: translate3d(0, 100%, 0) scale3d(1, 2, 1);
+        opacity: 0;
+    }
+    to {
+        transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+        opacity: 1;
+    }
+}
+
+.button--calypso::before {
+    content: '';
+    background: #000;
+    width: 120%;
+    height: 0;
+    padding-bottom: 120%;
+    position: absolute;
+    top: -110%;
+    left: -10%;
+    border-radius: 50%;
+    transform: translate3d(0, 68%, 0) scale3d(0, 0, 0);
+    transition: transform 0.4s cubic-bezier(0.1, 0, 0.3, 1);
+}
+
+.button--calypso:hover::before {
+    transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+}
+
+.button--calypso::after {
+    content: '';
+    background: #000;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: translate3d(0, -100%, 0);
+    transition: transform 0.4s cubic-bezier(0.1, 0, 0.3, 1);
+}
+
+.button--calypso:hover::after {
+    transform: translate3d(0, 0, 0);
+    transition-duration: 0.05s;
+    transition-delay: 0.4s;
+    transition-timing-function: linear;
+}
+
+.button--calypso.dark-mode::before,
+.button--calypso.dark-mode::after {
+    background: #fff;
+}
+
+.button--calypso.dark-mode {
+    color: #fff;
+    background: #333;
+}
+
+.button--calypso.dark-mode:hover {
+    color: #000;
+}

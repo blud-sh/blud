@@ -1,8 +1,9 @@
-"use client";
+'use client';
 
-import React from "react";
-import { motion } from "framer-motion";
-import { ChevronDown } from 'lucide-react';
+import React from 'react';
+import { motion } from 'framer-motion';
+import { ChevronDown, ArrowUpRightIcon } from 'lucide-react';
+import '@/app/styles/some.css';
 
 export default function HeroSection() {
     const containerVariants = {
@@ -10,9 +11,9 @@ export default function HeroSection() {
         visible: {
             opacity: 1,
             transition: {
-                staggerChildren: 0.3
-            }
-        }
+                staggerChildren: 0.3,
+            },
+        },
     };
 
     const itemVariants = {
@@ -22,9 +23,9 @@ export default function HeroSection() {
             y: 0,
             transition: {
                 duration: 0.8,
-                ease: "easeOut"
-            }
-        }
+                ease: 'easeOut',
+            },
+        },
     };
 
     const arrowVariants = {
@@ -34,13 +35,13 @@ export default function HeroSection() {
             transition: {
                 duration: 2,
                 repeat: Infinity,
-                ease: "easeInOut"
-            }
-        }
+                ease: 'easeInOut',
+            },
+        },
     };
 
     return (
-        <motion.div 
+        <motion.div
             className="flex flex-col items-center justify-center min-h-screen text-center px-4"
             variants={containerVariants}
             initial="hidden"
@@ -52,22 +53,30 @@ export default function HeroSection() {
                     <span className="block">You&apos;ve already arrived.</span>
                 </h1>
             </motion.div>
-            <motion.div 
+            <motion.div
                 className="text-lg sm:text-xl md:text-2xl lg:text-[2rem] text-[#2E2E2E] dark:text-[#D1D1D1] mb-12"
                 variants={itemVariants}
             >
                 tis is some cool shit we&apos;re cooking, stay tuned.
             </motion.div>
-            <motion.button 
-                className="px-4 py-2 sm:px-6 sm:py-3 mt-10 bg-black text-white rounded-full text-base sm:text-lg font-semibold transition-all duration-300 ease-in-out hover:bg-white hover:text-black hover:shadow-lg hover:scale-105 border-2 border-transparent hover:border-black"
-                variants={itemVariants}
-            >
-                Start Here
-            </motion.button>
             <motion.div
-                className="mt-8"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{
+                    type: 'spring',
+                    stiffness: 400,
+                    damping: 17,
+                }}
                 variants={itemVariants}
             >
+                <button className="button--calypso w-[132px] h-[55px] bg-[#D9D9D9] text-[#000000] rounded-[39px] border-0 flex items-center justify-center gap-2 transition-colors duration-300 hover:bg-[#BDBDBD] whitespace-nowrap">
+                    <span className="flex items-center">
+                        Start Here
+                        <ArrowUpRightIcon className="w-5 h-5 ml-1" />
+                    </span>
+                </button>
+            </motion.div>
+            <motion.div className="mt-8" variants={itemVariants}>
                 <motion.div
                     variants={arrowVariants}
                     initial="initial"

@@ -6,6 +6,8 @@ import { ModeToggle } from '@/components/mode-toggle';
 import NavSearch from '@/components/nav-search';
 import HeaderAuth from '@/components/header-auth';
 import ThemeLogo from '@/components/theme-logo';
+import '@/app/styles/custom.css';
+import '@/app/styles/some.css';
 
 export const metadata: Metadata = {
     title: 'Unicon',
@@ -30,8 +32,8 @@ export default function RootLayout({
                         <div className="fixed inset-0 z-0">
                             <AuroraBackground />
                         </div>
-                        <div className="fixed inset-0 z-10 noise-background"></div>
-                        <div className="relative z-20">
+                        <div className="fixed inset-0 z-0 pointer-events-none noise-background bg-cover bg-center bg-no-repeat"></div>
+                        <div className="relative z-10">
                             <nav className="flex items-center justify-between fixed top-0 w-full px-4 sm:px-6 py-4 z-30 bg-transparent">
                                 <div className="flex items-center w-24 sm:w-[12.5rem]">
                                     <ThemeLogo />
