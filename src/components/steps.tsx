@@ -7,9 +7,21 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 export default function Steps() {
     return (
         <div className="space-y-32 md:space-y-48 lg:space-y-64">
-            <StepItem number="01" imagePosition="right" />
-            <StepItem number="02" imagePosition="left" />
-            <StepItem number="03" imagePosition="right" />
+            <StepItem
+                number="01"
+                imagePosition="right"
+                imageSrc="/placeholder.svg?height=440&width=646"
+            />
+            <StepItem
+                number="02"
+                imagePosition="left"
+                imageSrc="/placeholder.svg?height=440&width=646"
+            />
+            <StepItem
+                number="03"
+                imagePosition="right"
+                imageSrc="/placeholder.svg?height=440&width=646"
+            />
         </div>
     );
 }
@@ -17,9 +29,11 @@ export default function Steps() {
 function StepItem({
     number,
     imagePosition,
+    imageSrc,
 }: {
     number: string;
     imagePosition: 'left' | 'right';
+    imageSrc: string;
 }) {
     const ref = useRef(null);
     const { scrollYProgress } = useScroll({
@@ -43,7 +57,7 @@ function StepItem({
             >
                 {imagePosition === 'left' ? (
                     <Image
-                        src="/placeholder.svg?height=200&width=400"
+                        src={imageSrc}
                         width={646}
                         height={440}
                         alt={`Step ${number}`}
@@ -63,7 +77,7 @@ function StepItem({
             >
                 {imagePosition === 'right' ? (
                     <Image
-                        src="/placeholder.svg?height=200&width=400"
+                        src={imageSrc}
                         width={646}
                         height={440}
                         alt={`Step ${number}`}

@@ -6,6 +6,8 @@ import HeroSection from '@/components/hero-section';
 import Steps from '@/components/steps';
 import { InfiniteMovingCards } from '@/components/ui/moving-cards';
 import ProfileSection from '@/components/profile-section';
+import JoinUs from '@/components/join-us';
+import Footer from '@/components/footer';
 
 const items = [
     {
@@ -118,6 +120,10 @@ export default function Home() {
                 </section>
             </AnimatedSection>
             <ProfileSection profiles={profiles} />
+            <AnimatedSection>
+                <JoinUs />
+            </AnimatedSection>
+            <Footer />
         </motion.div>
     );
 }
