@@ -25,7 +25,11 @@ function Navigation() {
 
     return (
         <nav className="flex items-center justify-between fixed top-0 w-full px-4 sm:px-6 py-4 z-30 bg-transparent">
-            <div className="flex items-center w-24 sm:w-[12.5rem]">
+            <div
+                className={`flex items-center w-24 sm:w-[12.5rem] transition-all duration-300 ${
+                    isScrolled ? 'opacity-0 pointer-events-none' : 'opacity-100'
+                }`}
+            >
                 <ThemeLogo />
             </div>
             <div
