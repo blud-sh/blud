@@ -46,7 +46,7 @@ const profiles = [
         role: 'Founder',
         description: 'head of the brain-rot club',
         tags: ['WEB DEVELOPMENT', 'BACKEND', 'SEO'],
-        imageSrc: '/rachit.jpeg ',
+        imageSrc: '/rachit.jpeg',
         connectHref: 'https://www.linkedin.com/in/rachit-srivastava-3b764527a/',
     },
     {
