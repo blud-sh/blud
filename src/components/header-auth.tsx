@@ -1,6 +1,5 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { ArrowUpRightIcon } from 'lucide-react';
 import '@/app/styles/some.css';
 
 export default function HeaderAuth() {
