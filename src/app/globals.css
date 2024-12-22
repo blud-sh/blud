@@ -122,7 +122,8 @@ body {
 }
 
 .animate-scroll {
-    animation: scroll var(--animation-duration) var(--animation-direction) linear infinite;
+    animation: scroll var(--animation-duration) var(--animation-direction)
+        linear infinite;
 }
 
 @keyframes scroll {
@@ -138,3 +139,6 @@ body {
     transition-duration: 300ms;
 }
 
+.z-50 {
+    z-index: 50;
+}
