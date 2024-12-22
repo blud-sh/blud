@@ -44,7 +44,8 @@ const profiles = [
     {
         name: 'Rachit Srivastava',
         role: 'Founder',
-        description: 'head of the brain-rot club',
+        description:
+            'Shinobi of the server, creating the code that runs in the shadows',
         tags: ['WEB DEVELOPMENT', 'BACKEND', 'SEO'],
         imageSrc: '/rachit.jpeg',
         connectHref: 'https://www.linkedin.com/in/rachit-srivastava-3b764527a/',
@@ -52,8 +53,8 @@ const profiles = [
     {
         name: 'Sai Shankar',
         role: 'Co-Founder',
-        description: 'Tech wizard and a metamodern mystic',
-        tags: ['FRONTEND', 'WEB DEVELOPMENT', 'DESGIN'],
+        description: 'tech wizard and a metamodern mystic',
+        tags: ['FRONTEND', 'WEB DEVELOPMENT', 'DESIGN'],
         imageSrc: '/sai.jpg',
         connectHref: 'https://www.linkedin.com/in/sai-shankar101/',
     },
@@ -63,7 +64,7 @@ const profiles = [
         description: 'Crafting beautiful user experiences',
         tags: ['WEB DEVELOPMENT', 'GRAPHIC DESIGN', 'PROTOTYPING'],
         imageSrc: '/naman.jpg',
-        connectHref: 'https://github.com/Nahman6',
+        connectHref: 'https://www.linkedin.com/in/naman-saini-35003b2b2/',
     },
     {
         name: 'Aditya Chaudhary',
