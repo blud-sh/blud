@@ -21,35 +21,35 @@ export default function JoinUs() {
     };
 
     return (
-        <section className="w-full py-24 px-4">
-            <div className="container mx-auto">
-                <div className="bg-[#D9D9D9] rounded-3xl p-8 md:p-12 lg:p-16 relative">
-                    <h2 className="text-[150px] font-bold text-center text-[#333333] mb-16">
+        <section className="w-full py-16 sm:py-20 md:py-28 lg:py-32 px-4">
+            <div className="container mx-auto max-w-lg sm:max-w-xl md:max-w-2xl lg:max-w-4xl xl:max-w-6xl">
+                <div className="bg-[#D9D9D9] rounded-3xl p-6 sm:p-8 md:p-12 lg:p-20 relative z-30">
+                    <h2 className="text-5xl sm:text-7xl md:text-8xl lg:text-[150px] font-bold text-center text-[#333333] mb-8 sm:mb-12 md:mb-16">
                         join us?
                     </h2>
 
-                    <div className="flex justify-center items-start gap-8 max-w-5xl mx-auto mb-[150px]">
-                        <div className="space-y-4 w-full max-w-md">
+                    <div className="flex flex-col sm:flex-row justify-center items-start gap-8 max-w-5xl mx-auto mb-12 sm:mb-16 md:mb-24 lg:mb-[150px]">
+                        <div className="space-y-4 w-full max-w-md mx-auto sm:mx-0">
                             <div className="flex items-center gap-4">
-                                <span className="text-[#333333] text-xl font-medium px-3 py-1 border-2 border-[#333333] rounded-full">
+                                <span className="text-[#333333] text-lg sm:text-xl font-medium px-2 sm:px-3 py-1 border-2 border-[#333333] rounded-full">
                                     01
                                 </span>
-                                <h3 className="text-[#333333] text-2xl font-medium">
+                                <h3 className="text-[#333333] text-xl sm:text-2xl font-medium">
                                     What&apos;s your name?
                                 </h3>
                             </div>
                             <UnderlineInput
                                 placeholder="type your full name"
-                                className="text-[#333333]"
+                                className="text-[#333333] text-lg sm:text-xl md:text-[32px]"
                             />
                         </div>
 
-                        <div className="space-y-4 w-full max-w-md">
+                        <div className="space-y-4 w-full max-w-md mx-auto sm:mx-0">
                             <div className="flex items-center gap-4">
-                                <span className="text-[#333333] text-xl font-medium px-3 py-1 border-2 border-[#333333] rounded-full">
+                                <span className="text-[#333333] text-lg sm:text-xl font-medium px-2 sm:px-3 py-1 border-2 border-[#333333] rounded-full">
                                     02
                                 </span>
-                                <h3 className="text-[#333333] text-2xl font-medium">
+                                <h3 className="text-[#333333] text-xl sm:text-2xl font-medium">
                                     What&apos;s your email?
                                 </h3>
                             </div>
@@ -57,7 +57,7 @@ export default function JoinUs() {
                                 <UnderlineInput
                                     type="email"
                                     placeholder="example@email.com"
-                                    className="text-[#333333]"
+                                    className="text-[#333333] text-lg sm:text-xl md:text-[32px]"
                                     value={email}
                                     onChange={handleEmailChange}
                                     error={!isEmailValid}
@@ -83,17 +83,17 @@ export default function JoinUs() {
                         </div>
                     </div>
 
-                    <div className="flex justify-center mt-16">
+                    <div className="flex justify-center mt-12 sm:mt-16 md:mt-20 lg:mt-24 mb-16 sm:mb-20 md:mb-24 lg:mb-32">
                         <button className="button--calypso send-button">
                             <span>send →</span>
                         </button>
                     </div>
 
-                    <div className="absolute bottom-8 right-8 md:right-12 lg:right-16 text-right">
-                        <p className="text-[#333333] text-[30px] font-medium">
+                    <div className="absolute bottom-2 sm:bottom-4 md:bottom-6 lg:bottom-8 right-4 sm:right-6 md:right-8 lg:right-16 text-right mt-8 sm:mt-12 md:mt-16">
+                        <p className="text-[#333333] text-lg sm:text-xl md:text-2xl lg:text-[30px] font-medium">
                             For further queries:
                         </p>
-                        <p className="text-[#333333] text-[20px]">
+                        <p className="text-[#333333] text-sm sm:text-base md:text-lg lg:text-[20px]">
                             ⮡ hello@unicon.com
                         </p>
                     </div>

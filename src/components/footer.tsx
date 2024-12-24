@@ -51,9 +51,9 @@ export default function Footer() {
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: 'easeOut' }}
         >
-            <div className="container mx-auto px-4">
+            <div className="container mx-auto px-4 relative z-30">
                 <motion.div
-                    className="border-t border-white w-full max-w-[1200px] mx-auto mb-16"
+                    className="border-t border-white w-full max-w-[1200px] mx-auto mb-16 relative z-30"
                     initial={{ scaleX: 0 }}
                     whileInView={{ scaleX: 1 }}
                     viewport={{ once: true }}
