@@ -99,7 +99,7 @@ body {
 }
 
 .noise-background {
-    background-image: url('/noise.webp');
+    background-image: url('/images/noise.webp');
     opacity: 0.1;
     mix-blend-mode: multiply;
     pointer-events: none;

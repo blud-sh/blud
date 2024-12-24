@@ -4,6 +4,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ChevronDown, ArrowUpRightIcon } from 'lucide-react';
 import '@/app/styles/some.css';
+import Link from 'next/link';
 
 export default function HeroSection() {
     const containerVariants = {
@@ -70,10 +71,12 @@ export default function HeroSection() {
                         damping: 17,
                     }}
                 >
-                    <span className="flex items-center">
-                        Start Here
-                        <ArrowUpRightIcon className="w-5 h-5 ml-1" />
-                    </span>
+                    <Link href="/login">
+                        <span className="flex items-center">
+                            Start Here
+                            <ArrowUpRightIcon className="w-5 h-5 ml-1" />
+                        </span>
+                    </Link>
                 </motion.button>
             </motion.div>
             <motion.div className="mt-8" variants={itemVariants}>

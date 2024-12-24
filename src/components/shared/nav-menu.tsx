@@ -1,7 +1,7 @@
 'use client';
 
 import { Menu } from 'lucide-react';
-import { ModeToggle } from '@/components/mode-toggle';
+import { ModeToggle } from '@/components/shared/mode-toggle';
 import {
     DropdownMenu,
     DropdownMenuContent,

@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import Image from "next/image";
-import LogoDark from "/public/logo-dark-mode.png";
-import LogoLight from "/public/logo-light-mode.png";
+import Image from 'next/image';
+import LogoDark from '/public/images/logo-dark-mode.png';
+import LogoLight from '/public/images/logo-light-mode.png';
 
 export default function ThemeLogo() {
     return (

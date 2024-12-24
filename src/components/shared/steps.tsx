@@ -10,17 +10,17 @@ export default function Steps() {
             <StepItem
                 number="01"
                 imagePosition="right"
-                imageSrc="/placeholder.svg?height=440&width=646"
+                imageSrc="/images/placeholder.webp?height=440&width=646"
             />
             <StepItem
                 number="02"
                 imagePosition="left"
-                imageSrc="/placeholder.svg?height=440&width=646"
+                imageSrc="/images/placeholder.webp?height=440&width=646"
             />
             <StepItem
                 number="03"
                 imagePosition="right"
-                imageSrc="/placeholder.svg?height=440&width=646"
+                imageSrc="/images/placeholder.webp?height=440&width=646"
             />
         </div>
     );
