@@ -42,7 +42,7 @@ export default function HeroSection() {
 
     return (
         <motion.div
-            className="flex flex-col items-center justify-center min-h-screen text-center px-4"
+            className="flex flex-col items-center justify-center min-h-screen text-center px-4 relative z-30"
             variants={containerVariants}
             initial="hidden"
             animate="visible"
@@ -59,22 +59,22 @@ export default function HeroSection() {
             >
                 tis is some cool shit we&apos;re cooking, stay tuned.
             </motion.div>
-            <motion.div
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                transition={{
-                    type: 'spring',
-                    stiffness: 400,
-                    damping: 17,
-                }}
-                variants={itemVariants}
-            >
-                <button className="button--calypso w-[132px] h-[55px] bg-[#D9D9D9] text-[#000000] rounded-[39px] border-0 flex items-center justify-center gap-2 transition-colors duration-300 hover:bg-[#BDBDBD] whitespace-nowrap">
+            <motion.div variants={itemVariants}>
+                <motion.button
+                    className="button--calypso w-[132px] h-[55px] bg-[#D9D9D9] text-[#000000] rounded-[39px] border-0 flex items-center justify-center gap-2 transition-colors duration-300 hover:bg-[#BDBDBD] whitespace-nowrap"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    transition={{
+                        type: 'spring',
+                        stiffness: 400,
+                        damping: 17,
+                    }}
+                >
                     <span className="flex items-center">
                         Start Here
                         <ArrowUpRightIcon className="w-5 h-5 ml-1" />
                     </span>
-                </button>
+                </motion.button>
             </motion.div>
             <motion.div className="mt-8" variants={itemVariants}>
                 <motion.div
