@@ -96,7 +96,7 @@ export default function Home() {
             <AnimatedSection>
                 <section className="py-24 md:py-32 lg:py-34">
                     <div className="container mx-auto px-4">
-                        <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-center mb-24">
+                        <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-center mb-24 relative z-30">
                             colleges with us.
                         </h2>
                         <InfiniteMovingCards
@@ -110,9 +110,9 @@ export default function Home() {
             </AnimatedSection>
 
             <AnimatedSection>
-                <section className="py-10 md:py-18 lg:py-22">
-                    <div className="container mx-auto px-4">
-                        <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-center mb-32">
+                <section className="py-10 md:py-18 lg:py-22 ">
+                    <div className="container mx-auto px-4 relative z-30">
+                        <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-center mb-32 ">
                             how to join?
                         </h2>
                         <Steps />

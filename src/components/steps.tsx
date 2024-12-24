@@ -6,7 +6,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 
 export default function Steps() {
     return (
-        <div className="space-y-32 md:space-y-48 lg:space-y-64">
+        <div className="space-y-32 md:space-y-48 lg:space-y-64 relative z-30">
             <StepItem
                 number="01"
                 imagePosition="right"
@@ -47,7 +47,7 @@ function StepItem({
     return (
         <motion.div
             ref={ref}
-            className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-16"
+            className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-16 relative z-30"
         >
             <AnimatedElement
                 isLeft={imagePosition === 'left'}
