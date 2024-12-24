@@ -2,6 +2,8 @@ import { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { ArrowUpRightIcon } from '@heroicons/react/24/solid';
+import { ArrowLeftIcon } from '@heroicons/react/24/solid';
+import { ArrowRightIcon } from '@heroicons/react/24/solid';
 import {
     motion,
     useAnimation,
@@ -161,7 +163,8 @@ export default function ProfileSection({ profiles }: ProfileSectionProps) {
                                         onClick={handlePrev}
                                         className="button--calypso w-[132px] h-[55px] bg-[#393632] text-[#ffffff] py-6 px-8 text-lg rounded-[30px] border-0 transition-colors duration-300 hover:bg-[#4A4642]"
                                     >
-                                        <span>/prev</span>
+                                        <ArrowLeftIcon className="w-5 h-5 scale-125" />
+                                        <span>prev</span>
                                     </Button>
                                 </motion.div>
                                 <motion.div
@@ -178,7 +181,8 @@ export default function ProfileSection({ profiles }: ProfileSectionProps) {
                                         onClick={handleNext}
                                         className="button--calypso w-[132px] h-[55px] bg-[#393632] text-[#ffffff] py-6 px-8 text-lg rounded-[30px] border-0 transition-colors duration-300 hover:bg-[#4A4642]"
                                     >
-                                        <span>/next</span>
+                                        <span>next</span>
+                                        <ArrowRightIcon className="w-5 h-5 scale-125" />
                                     </Button>
                                 </motion.div>
                             </div>
