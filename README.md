@@ -1,6 +1,6 @@
 <div align="center">
   
-  ![UniCon](/public/logo-dark-mode.png)
+  ![UniCon](/public/images/logo-dark-mode.png)
 
   <p>
     A comprehensive dashboard empowering college students with access to campus communities, resources, and integrated live chat features.
