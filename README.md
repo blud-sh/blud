@@ -17,11 +17,11 @@
 <div align="center" style="margin-top:30px; margin-bottom:30px">
 
 | Feature                       | Description                                         |
-| ----------------------------- | --------------------------------------------------- |
-| 🤝 **Community Access**       | Connect with various college communities and groups |
-| 📚 **Resource Hub**           | Quick access to essential college resources         |
-| 💬 **Live Chat**              | Real-time communication with peers and faculty      |
-| 🎨 **Personalized Dashboard** | Customize your view for a tailored experience       |
+| ----------------------------- | ------------------------------------------------------|
+| 🤝 **Community Access**       | Connect with various college communities and groups   |
+| 📚 **Resource Hub**           | Quick access to essential college resources           |
+| 💬 **Live Chat**              |Real-time communication with peers, alumni and faculty |
+| 🎨 **Personalized Dashboard** | Customize your view for a tailored experience         |
 
 </div>
 
