@@ -78,12 +78,20 @@ const profiles = [
         connectHref: 'https://www.linkedin.com/in/naman-saini-35003b2b2/',
     },
     {
-        name: 'Aditya Chaudhary',
+        name: 'Kshitij Chandra Roy',
         role: 'Co-Founder',
-        description: 'Bringing our vision to the world',
-        tags: ['FULL STACK', 'WEB DEVELOPMENT', 'SEO'],
-        imageSrc: '/images/aaditya.jpeg',
-        connectHref: 'https://www.linkedin.com/in/aditya-chaudhary-36898a283/',
+        description: 'Business Analyst and Finance Enthusiast',
+        tags: ['BUSINESS ANALYST', 'FINANCE'],
+        imageSrc: '/images/roy.jpg',
+        connectHref: 'https://www.linkedin.com/in/kshitij-chandra-roy-4aa1aa220/',
+    },
+    {
+        name: 'Manvitha Pentapati',
+        role: 'Co-Founder',
+        description: 'Techie with a passion for web development',
+        tags: ['FULL STACK', 'WEB DEVELOPMENT', 'BACKEND'],
+        imageSrc: '/images/manvita.jpg',
+        connectHref: 'https://www.linkedin.com/in/manvitha-pentapati-341a9327a',
     },
 ];
 
