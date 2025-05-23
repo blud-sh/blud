@@ -20,34 +20,19 @@ import '@/app/styles/some.css';
 
 const items = [
     {
-        quote: 'This product has changed my life! The team was incredibly supportive and the service exceeded my expectations.',
-        name: 'John Doe',
-        title: 'CEO, TechCorp',
+        quote: 'This platform would be a brilliant way to support students as they start their careers. It gives them an easier and more organised way to access various resources and opportunities that would otherwise be inaccessible.',
+        name: 'Keerthana Manoj',
+        title: 'Student',
     },
     {
-        quote: 'Fantastic experience! I highly recommend it to anyone looking for quality and professionalism.',
-        name: 'Jane Smith',
-        title: 'Marketing Manager, Brandify',
+        quote: "This is a fantastic idea—finally putting students in direct touch with the people running events, internships, and campus news without the usual red tape. It is exactly what today's busy, connected learners need to stay in the loop and grab opportunities on the spot. I can see this taking off fast and really making college life smoother for everyone.",
+        name: 'Palak',
+        title: 'Student - St Xaviers Calcutta',
     },
     {
-        quote: 'Absolutely top-notch! The results were beyond what I could have hoped for.',
-        name: 'Alex Johnson',
-        title: 'Freelance Designer',
-    },
-    {
-        quote: 'Great customer service and a seamless experience. I would definitely use this again.',
-        name: 'Emily Davis',
-        title: 'Founder, StartUpX',
-    },
-    {
-        quote: 'Reliable, efficient, and innovative. Everything you could ask for from a service provider.',
-        name: 'Michael Brown',
-        title: 'CTO, Innovatech',
-    },
-    {
-        quote: 'Exceeded our expectations! The quality and attention to detail were unparalleled.',
-        name: 'Sarah Wilson',
-        title: 'Project Manager, BuildIt Inc.',
+        quote: 'Your platform presents an exciting opportunity to support postgraduate students pursuing their studies after MBBS, especially those eager to engage in research. By facilitating collaboration with like-minded individuals internationally, it can have a positive impact on the research community.',
+        name: 'Abhirup Das',
+        title: 'MBBS Student - RIMSC Ranchi',
     },
 ];
 
@@ -212,7 +197,7 @@ export default function Home() {
                             <section className="py-24 md:py-32 lg:py-34">
                                 <div className="container mx-auto px-4">
                                     <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-center mb-24 relative z-30">
-                                        colleges with us.
+                                        what people say
                                     </h2>
                                     <InfiniteMovingCards
                                         items={items}

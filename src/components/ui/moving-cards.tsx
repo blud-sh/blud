@@ -102,13 +102,13 @@ export const InfiniteMovingCards = ({
             >
                 {items.map((item, idx) => (
                     <li
-                        className="w-[283px] h-[260px] max-w-full relative flex-shrink-0"
+                        className="w-[380px] h-[300px] max-w-full relative flex-shrink-0"
                         key={idx}
                     >
                         <CardSpotlight className="h-full">
                             <div className="h-full p-6 rounded-[35px]">
                                 <blockquote className="h-full flex flex-col justify-between">
-                                    <p className="text-lg leading-[1.6] text-gray-700 dark:text-gray-300 font-normal mb-4">
+                                    <p className="text-base leading-[1.5] text-gray-700 dark:text-gray-300 font-normal mb-4 overflow-y-auto max-h-[200px] pr-1 scrollbar-thin">
                                         {item.quote}
                                     </p>
                                     <footer className="mt-auto">
