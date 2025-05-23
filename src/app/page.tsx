@@ -34,6 +34,16 @@ const items = [
         name: 'Abhirup Das',
         title: 'MBBS Student - RIMSC Ranchi',
     },
+    {
+        quote: 'I’ve been trying to find freelance work for small design projects but honestly, it’s been super scattered—Telegram groups, Insta DMs, and all that. When I heard about SkillFarm on UniCon, I felt like bro, finally! One proper place where I can post my services and even get hired by startups or students who actually need help. Just waiting for it to launch so I can set up my profile and start getting real gigs.',
+        name: 'Rohan Goyal',
+        title: 'Freelancer',
+    },
+    {
+        quote: "I can’t wait for it to launch. It’s like finally someone made something just for us college students. A proper place to find teammates, gigs, events—everything in one app. It will create a huge impact on student community and education system.",
+        name: 'Ananya Mehta',
+        title: 'Student',
+    },
 ];
 
 const profiles = [
