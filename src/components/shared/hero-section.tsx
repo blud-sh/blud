@@ -58,7 +58,7 @@ export default function HeroSection() {
         className="text-lg sm:text-xl md:text-2xl lg:text-[2rem] text-[#2E2E2E] dark:text-[#D1D1D1] mb-12"
         variants={itemVariants}
       >
-        tis is some cool shit we&apos;re cooking, stay tuned.
+        this is some cool stuff we&apos;re cooking, stay tuned.
       </motion.div>
       <motion.div variants={itemVariants}>
         <Link href="/login">
