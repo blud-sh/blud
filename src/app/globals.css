@@ -2,13 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
+@import url("https://api.fontshare.com/v2/css?f[]=clash-display@400,700&display=swap");
+
 @font-face {
-    font-family: 'Space Grotesk';
-    src: url('/fonts/SpaceGrotesk.ttf');
+    font-family: "Space Grotesk";
+    src: url("/fonts/SpaceGrotesk.ttf");
 }
 
 body {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: "Clash Display", "Space Grotesk", sans-serif;
     font-weight: 500;
     padding: 0;
     margin: 0;
@@ -99,7 +102,7 @@ body {
 }
 
 .noise-background {
-    background-image: url('/images/noise.webp');
+    background-image: url("/images/noise.webp");
     opacity: 0.1;
     mix-blend-mode: multiply;
     pointer-events: none;
@@ -112,18 +115,11 @@ body {
 
 /* Infinite moving cards styles */
 .scroller {
-    mask-image: linear-gradient(
-        to right,
-        transparent,
-        white 20%,
-        white 80%,
-        transparent
-    );
+    mask-image: linear-gradient(to right, transparent, white 20%, white 80%, transparent);
 }
 
 .animate-scroll {
-    animation: scroll var(--animation-duration) var(--animation-direction)
-        linear infinite;
+    animation: scroll var(--animation-duration) var(--animation-direction) linear infinite;
 }
 
 @keyframes scroll {
