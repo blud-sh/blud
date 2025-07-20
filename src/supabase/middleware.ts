@@ -34,7 +34,6 @@ export async function updateSession(request: NextRequest) {
     } = await supabase.auth.getUser()
 
     // Allow access to landing page (/) and login page without authentication
-
     if (
         !user &&
         !request.nextUrl.pathname.startsWith("/login") &&
