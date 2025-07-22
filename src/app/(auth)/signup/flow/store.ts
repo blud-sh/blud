@@ -2,7 +2,7 @@ import { create } from "zustand"
 import { persist } from "zustand/middleware"
 
 interface SignupStepState {
-    step: number
+    step: 2 | 3 | 4 | 5 | 6
     email: string
     role: string
     name: string

@@ -18,22 +18,20 @@ export const signIn = async (data: { email: string }) => {
         const validatedData = signInSchema.parse(data)
         const supabase = await createClient()
         const { email } = validatedData
-        const redirectTo = `${config.domain}/auth/callback`
 
         const { error } = await supabase.auth.signInWithOtp({
             email,
             options: {
-                emailRedirectTo: `${redirectTo}?redirect=${encodeURIComponent("/chatroom")}`,
                 shouldCreateUser: true,
             },
         })
 
         if (error) {
-            console.error("Error sending magic link:", error)
+            console.error("Error sending otp:", error)
             return { error: error.message }
         }
 
-        return { success: "Magic link sent to your email" }
+        return { success: "OTP has been sent to your email" }
     } catch (error) {
         if (error instanceof z.ZodError) {
             return { error: error.errors[0].message }

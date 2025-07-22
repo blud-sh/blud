@@ -71,14 +71,14 @@ export default function Step2() {
     const [error, setError] = useState("")
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
-        // const otpCode = otp.join("");
-        // const result = await verifyOtp({ email, token: otpCode });
-        // if (result?.error) {
-        //     setError(result.error);
-        // } else {
-        //     setError("");
-        //     nextStep();
-        // }
+        const otpCode = otp.join("")
+        const result = await verifyOtp({ email, token: otpCode })
+        if (result?.error) {
+            setError(result.error)
+        } else {
+            setError("")
+            nextStep()
+        }
         nextStep()
     }
 

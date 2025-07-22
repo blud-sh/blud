@@ -28,11 +28,11 @@ const SignupPage: React.FC = () => {
         }
         setError("")
         setEmailZustand(email)
-        // const result = await signIn({ email })
-        // if (result?.error) {
-        //     setError(result.error)
-        //     return
-        // }
+        const result = await signIn({ email })
+        if (result?.error) {
+            setError(result.error)
+            return
+        }
         router.push("/signup/flow")
     }
 

@@ -19,8 +19,6 @@ export default function LoginPage() {
     const [isValidEmail, setIsValidEmail] = useState<boolean | null>(null)
     const [otpValue, setOtpValue] = useState("")
     const [isSubmitting, setIsSubmitting] = useState(false)
-    const [timer, setTimer] = useState(0)
-    const [canResend, setCanResend] = useState(true)
 
     const router = useRouter()
     const searchParams = useSearchParams()
@@ -37,23 +35,6 @@ export default function LoginPage() {
         setIsValidEmail(validateEmail(inputEmail))
     }
 
-    const startTimer = () => {
-        setTimer(60)
-        setCanResend(false)
-    }
-
-    useEffect(() => {
-        let interval: NodeJS.Timeout
-        if (timer > 0) {
-            interval = setInterval(() => {
-                setTimer((prev) => prev - 1)
-            }, 1000)
-        } else if (timer === 0 && !canResend) {
-            setCanResend(true)
-        }
-        return () => clearInterval(interval)
-    }, [timer, canResend])
-
     const handleEmailSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
         if (!isValidEmail || isSubmitting) return
@@ -66,7 +47,6 @@ export default function LoginPage() {
             } else {
                 toast.success("OTP sent to your email!")
                 setActiveTab("otp")
-                startTimer()
             }
         } catch (error) {
             toast.error("Failed to send OTP")
@@ -76,7 +56,7 @@ export default function LoginPage() {
     }
 
     const handleResendOtp = async () => {
-        if (!canResend || isSubmitting) return
+        if (isSubmitting) return
 
         setIsSubmitting(true)
         try {
@@ -85,7 +65,6 @@ export default function LoginPage() {
                 toast.error(result.error)
             } else {
                 toast.success("New OTP sent to your email!")
-                startTimer()
                 setOtpValue("")
             }
         } catch (error) {
@@ -118,8 +97,6 @@ export default function LoginPage() {
     const handleBackToEmail = () => {
         setActiveTab("signin")
         setOtpValue("")
-        setTimer(0)
-        setCanResend(true)
     }
 
     const handleGoogle = async () => {
@@ -350,19 +327,13 @@ export default function LoginPage() {
 
                     <div className="text-center">
                         <p className="text-gray-400 mb-2">Didn't receive the code?</p>
-                        {timer > 0 ? (
-                            <p className="text-[#D9D9D9]">
-                                Resend in <span className="font-semibold">{timer}s</span>
-                            </p>
-                        ) : (
-                            <button
-                                onClick={handleResendOtp}
-                                disabled={!canResend || isSubmitting}
-                                className="text-[#D9D9D9] font-semibold hover:text-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed underline"
-                            >
-                                {isSubmitting ? "Sending..." : "Resend OTP"}
-                            </button>
-                        )}
+                        <button
+                            onClick={handleResendOtp}
+                            disabled={isSubmitting}
+                            className="text-[#D9D9D9] font-semibold hover:text-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed underline"
+                        >
+                            {isSubmitting ? "Sending..." : "Resend OTP"}
+                        </button>
                     </div>
                 </div>
             )}
