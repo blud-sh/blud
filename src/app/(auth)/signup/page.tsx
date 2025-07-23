@@ -15,6 +15,8 @@ const SignupPage: React.FC = () => {
     }
 
     const router = useRouter()
+    const zustandEmail = useSignupStepStore((s) => s.email)
+    const resetSignup = useSignupStepStore((s) => s.reset)
     const setEmailZustand = useSignupStepStore((s) => s.setEmail)
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
@@ -27,6 +29,10 @@ const SignupPage: React.FC = () => {
             return
         }
         setError("")
+        // If the email is different, reset the store first
+        if (zustandEmail && zustandEmail !== email) {
+            resetSignup()
+        }
         setEmailZustand(email)
         const result = await signIn({ email })
         if (result?.error) {
