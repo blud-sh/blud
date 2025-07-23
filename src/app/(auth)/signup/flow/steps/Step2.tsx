@@ -5,7 +5,8 @@ import { ArrowLeft } from "lucide-react"
 import { useRouter } from "next/navigation"
 import { ArrowElbowRightUpIcon } from "@phosphor-icons/react"
 import { useSignupStepStore } from "../store"
-import { verifyOtp } from "@/actions/auth"
+import { verifyOtp as serverVerifyOtp } from "@/actions/auth"
+import { createClient as createSupabaseClient } from "@/supabase/client"
 
 export default function Step2() {
     const router = useRouter()
@@ -72,13 +73,25 @@ export default function Step2() {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
         const otpCode = otp.join("")
-        const result = await verifyOtp({ email, token: otpCode })
-        if (result?.error) {
-            setError(result.error)
+        const supabase = createSupabaseClient()
+        const { error } = await supabase.auth.verifyOtp({
+            email,
+            token: otpCode,
+            type: "email",
+        })
+        if (error) {
+            setError(error.message)
         } else {
             setError("")
             nextStep()
         }
+    }
+
+    const resetSignup = useSignupStepStore((s) => s.reset)
+
+    const handleUseAnotherAccount = () => {
+        resetSignup()
+        router.push("/signup")
     }
 
     return (
@@ -146,9 +159,17 @@ export default function Step2() {
                         submit <ArrowElbowRightUpIcon size={24} className="ml-1" />
                     </span>
                 </button>
+                {/* Use another email/account link */}
                 <button
                     type="button"
-                    className="text-[#7A69B3] underline text-base hover:text-[#5a4a8a]"
+                    onClick={handleUseAnotherAccount}
+                    className="text-black underline text-base hover:text-gray-700 mb-4 transition-colors"
+                >
+                    Use another email/account
+                </button>
+                <button
+                    type="button"
+                    className="text-black underline text-base hover:text-gray-700 transition-colors"
                     tabIndex={-1}
                 >
                     resend code?

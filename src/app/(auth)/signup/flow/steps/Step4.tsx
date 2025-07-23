@@ -16,12 +16,18 @@ export default function Step4() {
     const [name, setNameLocal] = useState("")
     const [username, setUsernameLocal] = useState("")
     const [bio, setBioLocal] = useState("")
+    const resetSignup = useSignupStepStore((s) => s.reset)
 
     const handleNext = () => {
         setName(name)
         setUsername(username)
         setBio(bio)
         nextStep()
+    }
+
+    const handleUseAnotherAccount = () => {
+        resetSignup()
+        router.push("/signup")
     }
 
     return (
@@ -106,6 +112,14 @@ export default function Step4() {
                     className="mt-6 px-8 py-4 rounded-full bg-black text-white text-lg font-semibold flex items-center gap-2 hover:bg-[#222] transition"
                 >
                     next <ArrowRightIcon size={20} weight="bold" />
+                </button>
+                {/* Use another email/account link */}
+                <button
+                    type="button"
+                    onClick={handleUseAnotherAccount}
+                    className="text-black underline text-base hover:text-gray-700 mt-4 transition-colors"
+                >
+                    Use another email/account
                 </button>
             </div>
 

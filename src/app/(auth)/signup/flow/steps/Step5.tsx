@@ -34,12 +34,18 @@ export default function Step5() {
     const [yearDropdown, setYearDropdown] = useState(false)
     const collegeDropdownRef = React.useRef<HTMLDivElement>(null)
     const yearDropdownRef = React.useRef<HTMLDivElement>(null)
+    const resetSignup = useSignupStepStore((s) => s.reset)
 
     const handleSubmit = () => {
         setCollege(college)
         setCollegeEmail(collegeEmail)
         setGraduationYear(graduationYear)
         nextStep()
+    }
+
+    const handleUseAnotherAccount = () => {
+        resetSignup()
+        router.push("/signup")
     }
 
     return (
@@ -235,6 +241,14 @@ export default function Step5() {
                     className="mt-6 px-8 py-4 rounded-full bg-[#7A69B3] text-white text-lg font-semibold flex items-center gap-2 hover:bg-[#5a4a8a] transition"
                 >
                     submit ⏎
+                </button>
+                {/* Use another email/account link */}
+                <button
+                    type="button"
+                    onClick={handleUseAnotherAccount}
+                    className="text-black underline text-base hover:text-gray-700 mt-4 transition-colors"
+                >
+                    Use another email/account
                 </button>
             </div>
 

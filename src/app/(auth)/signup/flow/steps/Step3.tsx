@@ -14,7 +14,7 @@ export default function Step3() {
 
     const extendedRoles = [...roles, ...roles, ...roles]
 
-    const { setRole, nextStep } = useSignupStepStore()
+    const { setRole, nextStep, reset } = useSignupStepStore()
 
     const prev = () => setIndex((prev) => prev - 1)
     const next = () => setIndex((prev) => prev + 1)
@@ -39,6 +39,13 @@ export default function Step3() {
         const selected = roles[index % roles.length]
         setRole(selected)
         nextStep()
+    }
+
+    const resetSignup = useSignupStepStore((s) => s.reset)
+
+    const handleUseAnotherAccount = () => {
+        resetSignup()
+        router.push("/signup")
     }
 
     return (
@@ -127,6 +134,14 @@ export default function Step3() {
                     className="mt-12 px-6 py-3 rounded-full bg-black text-white text-lg font-semibold hover:bg-gray-800 transition"
                 >
                     submit ⏎
+                </button>
+                {/* Use another email/account link */}
+                <button
+                    type="button"
+                    onClick={handleUseAnotherAccount}
+                    className="text-black underline text-base hover:text-gray-700 mt-4 transition-colors"
+                >
+                    Use another email/account
                 </button>
             </div>
 
