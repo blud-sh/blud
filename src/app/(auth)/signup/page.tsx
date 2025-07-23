@@ -4,6 +4,9 @@ import { EnvelopeSimpleIcon, ArrowElbowRightUpIcon } from "@phosphor-icons/react
 import { useRouter } from "next/navigation"
 import { useSignupStepStore } from "./flow/store"
 import { signIn } from "@/actions/auth"
+import Image from "next/image"
+import config from "../../../../config"
+import { createClient } from "@/supabase/client"
 
 const SignupPage: React.FC = () => {
     const [email, setEmail] = React.useState("")
@@ -40,6 +43,18 @@ const SignupPage: React.FC = () => {
             return
         }
         router.push("/signup/flow")
+    }
+
+    // Add Google sign-in handler
+    const handleGoogle = async () => {
+        const redirectTo = `${config.domain}/auth/callback`
+        const supabase = createClient()
+        supabase.auth.signInWithOAuth({
+            provider: "google",
+            options: {
+                redirectTo: `${redirectTo}?redirect=${encodeURIComponent("/chatroom")}`,
+            },
+        })
     }
 
     return (
@@ -108,6 +123,27 @@ const SignupPage: React.FC = () => {
                             </button>
                         </div>
                     </form>
+                    {/* Divider */}
+                    <div className="flex items-center justify-center mt-8 mb-4 w-full text-gray-400">
+                        <div className="w-[130px] h-px bg-gray-300"></div>
+                        <span className="mx-3 text-sm">or continue with</span>
+                        <div className="w-[130px] h-px bg-gray-300"></div>
+                    </div>
+                    {/* Google OAuth Button */}
+                    <div className="mt-2">
+                        <button
+                            className="w-[70px] h-[70px] flex items-center justify-center bg-[#D9D9D9] rounded-full transition-all hover:bg-[#c0c0c0]"
+                            onClick={handleGoogle}
+                            type="button"
+                        >
+                            <Image
+                                src="/images/google-icon.svg"
+                                alt="Google Icon"
+                                width={35}
+                                height={35}
+                            />
+                        </button>
+                    </div>
                 </div>
             </div>
 

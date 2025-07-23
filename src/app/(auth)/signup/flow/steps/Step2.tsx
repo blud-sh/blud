@@ -32,6 +32,16 @@ export default function Step2() {
         }
     }
 
+    // handler for paste
+    const handlePaste = (e: React.ClipboardEvent<HTMLInputElement>) => {
+        const paste = e.clipboardData.getData("text").replace(/[^0-9]/g, "")
+        if (paste.length === 6) {
+            setOtp(paste.split(""))
+            setActive(6)
+            e.preventDefault()
+        }
+    }
+
     useEffect(() => {
         // Focus the active input
         if (active < 6) {
@@ -142,6 +152,7 @@ export default function Step2() {
                                 onChange={(e) => handleChange(idx, e.target.value)}
                                 onKeyDown={(e) => handleKeyDown(idx, e)}
                                 onFocus={() => handleFocus(idx)}
+                                onPaste={handlePaste}
                                 className={`bg-transparent w-full h-full text-6xl text-center font-bold outline-none ${
                                     active === idx ? "text-white" : "text-contrast"
                                 }`}
