@@ -4,8 +4,10 @@ import React, { useEffect, useState } from "react"
 import { useRouter } from "next/navigation"
 import { SpinnerGap } from "@phosphor-icons/react"
 import { motion, AnimatePresence } from "framer-motion"
+import { useSignupStepStore } from "../store"
 
 export default function Splash() {
+    const resetSignup = useSignupStepStore((s) => s.reset)
     const router = useRouter()
     const [showExit, setShowExit] = useState(false)
 

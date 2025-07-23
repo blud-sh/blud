@@ -79,7 +79,6 @@ export default function Step2() {
             setError("")
             nextStep()
         }
-        nextStep()
     }
 
     return (

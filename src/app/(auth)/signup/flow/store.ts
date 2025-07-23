@@ -11,7 +11,7 @@ interface SignupStepState {
     college: string
     collegeEmail: string
     graduationYear: string
-    setStep: (step: number) => void
+    setStep: (step: 2 | 3 | 4 | 5 | 6) => void
     setEmail: (email: string) => void
     setRole: (role: string) => void
     setName: (name: string) => void
@@ -22,6 +22,7 @@ interface SignupStepState {
     setGraduationYear: (graduationYear: string) => void
     nextStep: () => void
     prevStep: () => void
+    reset: () => void
 }
 
 export const useSignupStepStore = create(
@@ -36,7 +37,7 @@ export const useSignupStepStore = create(
             college: "",
             collegeEmail: "",
             graduationYear: "",
-            setStep: (step) => set({ step }),
+            setStep: (step: 2 | 3 | 4 | 5 | 6) => set({ step }),
             setEmail: (email) => set({ email }),
             setRole: (role) => set({ role }),
             setName: (name) => set({ name }),
@@ -45,8 +46,27 @@ export const useSignupStepStore = create(
             setCollege: (college) => set({ college }),
             setCollegeEmail: (collegeEmail) => set({ collegeEmail }),
             setGraduationYear: (graduationYear) => set({ graduationYear }),
-            nextStep: () => set((state) => ({ step: state.step + 1 })),
-            prevStep: () => set((state) => ({ step: state.step > 2 ? state.step - 1 : 2 })),
+            nextStep: () => set((state) => ({ step: (state.step + 1) as 2 | 3 | 4 | 5 | 6 })),
+            prevStep: () => set((state) => ({ step: (state.step > 2 ? (state.step - 1) : 2) as 2 | 3 | 4 | 5 | 6 })),
+            reset: () => {
+                set({
+                    step: 2,
+                    email: "",
+                    role: "",
+                    name: "",
+                    username: "",
+                    bio: "",
+                    college: "",
+                    collegeEmail: "",
+                    graduationYear: "",
+                });
+                // Clear the persisted storage using the store instance 
+                // @ts-ignore
+                if (typeof (useSignupStepStore as any).persist?.clearStorage === 'function') {
+                    // @ts-ignore
+                    (useSignupStepStore as any).persist.clearStorage();
+                }
+            },
         }),
         {
             name: "signup-step-store",
