@@ -105,7 +105,7 @@ export default function LoginPage() {
         supabase.auth.signInWithOAuth({
             provider: "google",
             options: {
-                redirectTo: `${redirectTo}?redirect=${encodeURIComponent("/chatroom")}`,
+                redirectTo: `${redirectTo}?redirect=${encodeURIComponent("/signup/flow")}`,
             },
         })
     }

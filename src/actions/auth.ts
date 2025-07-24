@@ -2,7 +2,6 @@
 import { redirect } from "next/navigation"
 import { createClient } from "@/supabase/server"
 import { z } from "zod"
-import config from "../../config"
 
 const signInSchema = z.object({
     email: z.string().email(),
@@ -34,7 +33,7 @@ export const signIn = async (data: { email: string }) => {
         return { success: "OTP has been sent to your email" }
     } catch (error) {
         if (error instanceof z.ZodError) {
-            return { error: error.errors[0].message }
+            return { error: error.issues[0].message }
         }
         console.error(error)
         return { error: "An unexpected error occurred" }
@@ -61,7 +60,7 @@ export const verifyOtp = async (data: { email: string; token: string }) => {
         return { success: "OTP has been verified successfully" }
     } catch (error) {
         if (error instanceof z.ZodError) {
-            return { error: error.errors[0].message }
+            return { error: error.issues[0].message }
         }
         return { error: "An unexpected error occurred" }
     }
