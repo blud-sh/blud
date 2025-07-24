@@ -32,11 +32,24 @@ export default function Step5() {
     const [graduationYear, setGraduationYearLocal] = useState("")
     const [collegeDropdown, setCollegeDropdown] = useState(false)
     const [yearDropdown, setYearDropdown] = useState(false)
+    const [collegeEmailError, setCollegeEmailError] = useState("")
     const collegeDropdownRef = React.useRef<HTMLDivElement>(null)
     const yearDropdownRef = React.useRef<HTMLDivElement>(null)
     const resetSignup = useSignupStepStore((s) => s.reset)
 
+    const validateCollegeEmail = (email: string) => {
+        // basic email regex and domain checking stuff
+        const emailRegex = /^[^\s@]+@[^\s@]+\.(edu\.in|ac\.in)$/i
+        return emailRegex.test(email)
+    }
+
     const handleSubmit = () => {
+        if (!validateCollegeEmail(collegeEmail)) {
+            setCollegeEmailError("Please enter a valid college email ending with .edu.in or .ac.in")
+            return
+        } else {
+            setCollegeEmailError("")
+        }
         setCollege(college)
         setCollegeEmail(collegeEmail)
         setGraduationYear(graduationYear)
@@ -173,7 +186,10 @@ export default function Step5() {
                                 id="collegeEmail"
                                 type="email"
                                 value={collegeEmail}
-                                onChange={(e) => setCollegeEmailLocal(e.target.value)}
+                                onChange={(e) => {
+                                    setCollegeEmailLocal(e.target.value)
+                                    if (collegeEmailError) setCollegeEmailError("")
+                                }}
                                 className="block w-full min-w-[200px] max-w-2xl pl-14 pr-8 py-5 text-lg font-secondary text-[var(--foreground)] focus:outline-none focus:ring-2 focus:ring-[var(--primary)]"
                                 style={{
                                     background: "var(--input)",
@@ -186,6 +202,9 @@ export default function Step5() {
                                 }}
                                 placeholder="enter your college email address here"
                             />
+                            {collegeEmailError && (
+                                <p className="text-[var(--accent)] text-sm mt-2 ml-1">{collegeEmailError}</p>
+                            )}
                         </div>
                     </div>
                     {/* Graduation Year Dropdown */}
