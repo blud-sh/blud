@@ -105,30 +105,29 @@ export default function Step2() {
     }
 
     return (
-        <div className="min-h-screen flex flex-col justify-between bg-white">
+        <div className="min-h-screen flex flex-col bg-[var(--background)] text-[var(--foreground)] justify-between">
             {/* Top bar */}
             <div className="flex items-center justify-between px-8 pt-8">
                 <button
                     onClick={() => router.back()}
-                    className="p-2 rounded-full hover:bg-gray-100"
+                    className="p-2 rounded-full hover:bg-[var(--muted)]"
                 >
-                    <ArrowLeft className="w-7 h-7 text-black" />
+                    <ArrowLeft className="w-7 h-7 text-[var(--foreground)]" />
                 </button>
-                <span className="font-bold text-2xl text-black mx-auto absolute left-1/2 -translate-x-1/2">
+                <span className="font-bold text-2xl text-[var(--foreground)] mx-auto absolute left-1/2 -translate-x-1/2">
                     logo
                 </span>
                 <div className="w-7 h-7" /> {/* Spacer for symmetry */}
             </div>
-
             {/* Centered content */}
             <form
                 onSubmit={handleSubmit}
                 className="flex flex-col items-center flex-1 justify-center"
             >
-                <h1 className="text-4xl md:text-5xl font-bold text-contrast mb-4 text-center">
+                <h1 className="text-4xl md:text-5xl font-bold mb-4 text-center text-[var(--foreground)]">
                     cool, give us the code
                 </h1>
-                <p className="text-lg text-gray-500 mb-10 text-center">
+                <p className="text-lg mb-10 text-center text-[var(--muted)]">
                     enter the code which you received in your mail
                 </p>
                 <div className="flex gap-6 mb-10">
@@ -138,8 +137,8 @@ export default function Step2() {
                             ref={boxRefs[idx]}
                             className={`flex items-center justify-center w-28 h-32 rounded-full border-4 transition-all duration-200 ${
                                 active === idx
-                                    ? "bg-[#7A69B3] text-white border-[#7A69B3]"
-                                    : "bg-white text-black border-gray-300"
+                                    ? "bg-[var(--primary)] text-[var(--primary-foreground)] border-[var(--primary)]"
+                                    : "bg-[var(--input)] text-[var(--foreground)] border-[var(--border)] dark:bg-[var(--bg-black)] dark:text-[var(--foreground)] dark:border-[var(--contrast)]"
                             }`}
                         >
                             <input
@@ -154,17 +153,20 @@ export default function Step2() {
                                 onFocus={() => handleFocus(idx)}
                                 onPaste={handlePaste}
                                 className={`bg-transparent w-full h-full text-6xl text-center font-bold outline-none ${
-                                    active === idx ? "text-white" : "text-contrast"
+                                    active === idx ? "text-[var(--primary-foreground)]" : "text-[var(--foreground)]"
                                 }`}
+                                style={{
+                                    borderRadius: "9999px",
+                                }}
                                 autoFocus={idx === 0}
                             />
                         </div>
                     ))}
                 </div>
-                {error && <p className="text-red-500 text-center mb-4">{error}</p>}
+                {error && <p className="text-[var(--accent)] text-center mb-4">{error}</p>}
                 <button
                     type="submit"
-                    className="w-56 py-4 bg-contrast text-white rounded-full text-lg font-semibold mb-4 hover:bg-black transition-colors flex items-center justify-center gap-x-2"
+                    className="w-56 py-4 bg-[var(--primary)] text-[var(--primary-foreground)] rounded-full text-lg font-semibold mb-4 hover:opacity-90 transition-colors flex items-center justify-center gap-x-2"
                 >
                     <span className="flex items-center">
                         submit <ArrowElbowRightUpIcon size={24} className="ml-1" />
@@ -174,31 +176,30 @@ export default function Step2() {
                 <button
                     type="button"
                     onClick={handleUseAnotherAccount}
-                    className="text-black underline text-base hover:text-gray-700 mb-4 transition-colors"
+                    className="text-black underline text-base hover:text-gray-700 mb-4 transition-colors dark:text-[var(--foreground)] dark:hover:text-[var(--muted)]"
                 >
                     Use another email/account
                 </button>
                 <button
                     type="button"
-                    className="text-black underline text-base hover:text-gray-700 transition-colors"
+                    className="text-black underline text-base hover:text-gray-700 transition-colors dark:text-[var(--foreground)] dark:hover:text-[var(--muted)]"
                     tabIndex={-1}
                 >
                     resend code?
                 </button>
             </form>
-
             {/* Footer */}
             <footer className="flex justify-end items-center px-8 pb-8 w-full">
                 <div className="flex gap-6">
                     <a
                         href="#"
-                        className="font-semibold text-contrast font-primary text-xl cursor-pointer"
+                        className="font-semibold font-primary text-xl cursor-pointer text-[var(--foreground)]"
                     >
                         support
                     </a>
                     <a
                         href="#"
-                        className="font-semibold text-contrast font-primary text-xl cursor-pointer"
+                        className="font-semibold font-primary text-xl cursor-pointer text-[var(--foreground)]"
                     >
                         help
                     </a>

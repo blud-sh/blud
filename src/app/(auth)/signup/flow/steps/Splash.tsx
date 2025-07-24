@@ -25,7 +25,7 @@ export default function Splash() {
     }, [router])
 
     return (
-        <div className="relative w-full min-h-screen bg-primary overflow-hidden">
+        <div className="relative w-full min-h-screen bg-[var(--bg-black)] text-[var(--primary)] overflow-hidden">
             {/* ENTRY: Centered Content */}
             <AnimatePresence>
                 {!showExit && (
@@ -35,7 +35,7 @@ export default function Splash() {
                         animate={{ opacity: 1, scale: 1 }}
                         exit={{ opacity: 0, scale: 0.95 }}
                         transition={{ duration: 0.8, ease: "easeInOut" }}
-                        className="absolute inset-0 z-10 flex flex-col items-center justify-center text-base"
+                        className="absolute inset-0 z-10 flex flex-col items-center justify-center text-base text-[var(--primary)]"
                     >
                         <motion.h1
                             initial={{ opacity: 0, y: 30 }}
@@ -46,7 +46,7 @@ export default function Splash() {
                                 type: "spring",
                                 stiffness: 120,
                             }}
-                            className="text-white text-3xl md:text-5xl font-bold text-center"
+                            className="text-[var(--primary)] text-3xl md:text-5xl font-bold text-center"
                         >
                             welcome to your internet dorm
                         </motion.h1>
@@ -55,7 +55,7 @@ export default function Splash() {
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ delay: 1.2, duration: 0.6, ease: "easeOut" }}
                         >
-                            <SpinnerGap size={40} className="mt-12 animate-spin text-white" />
+                            <SpinnerGap size={40} className="mt-12 animate-spin text-[var(--base)]" />
                         </motion.div>
                     </motion.div>
                 )}
