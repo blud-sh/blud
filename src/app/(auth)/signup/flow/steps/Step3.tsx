@@ -5,12 +5,14 @@ import { ArrowLeft, ChevronUp, ChevronDown } from "lucide-react"
 import { useRouter } from "next/navigation"
 import { motion } from "framer-motion"
 import { useSignupStepStore } from "../store"
+import { useTheme } from "next-themes"
 const roles = ["student", "dropout", "alumni", "explorer"]
 const ITEM_HEIGHT = 80
 const OFFSET = roles.length
 export default function Step3() {
     const router = useRouter()
     const [index, setIndex] = useState(OFFSET)
+    const { theme } = useTheme();
 
     const extendedRoles = [...roles, ...roles, ...roles]
 
@@ -49,16 +51,16 @@ export default function Step3() {
     }
 
     return (
-        <div className="min-h-screen w-full flex flex-col bg-[#f1f8f4]">
+        <div className="min-h-screen w-full flex flex-col bg-[var(--background)] text-[var(--foreground)]">
             {/* Top bar */}
             <div className="flex items-center justify-between px-8 pt-8">
                 <button
                     onClick={() => router.back()}
-                    className="p-2 rounded-full hover:bg-gray-100"
+                    className="p-2 rounded-full hover:bg-[var(--muted)]"
                 >
-                    <ArrowLeft className="w-6 h-6 text-black" />
+                    <ArrowLeft className="w-6 h-6 text-[var(--foreground)]" />
                 </button>
-                <span className="font-bold text-black text-sm mx-auto absolute left-1/2 -translate-x-1/2">
+                <span className="font-bold text-[var(--foreground)] text-sm mx-auto absolute left-1/2 -translate-x-1/2">
                     logo
                 </span>
                 <div className="w-6 h-6" />
@@ -66,10 +68,10 @@ export default function Step3() {
 
             {/* Main Content */}
             <div className="flex-1 flex flex-col items-center justify-center">
-                <h1 className="text-4xl md:text-5xl font-bold text-black mb-2 text-center">
+                <h1 className="text-4xl md:text-5xl font-bold mb-2 text-center text-[var(--foreground)]">
                     welcome to blud.
                 </h1>
-                <p className="text-lg text-gray-500 mb-10 text-center">
+                <p className="text-lg mb-10 text-center text-[var(--muted)]">
                     What describes you the most?
                 </p>
 
@@ -79,20 +81,20 @@ export default function Step3() {
                     <div className="flex flex-col gap-4">
                         <button
                             onClick={prev}
-                            className="p-2 rounded-full hover:bg-gray-200 transition"
+                            className="p-2 rounded-full hover:bg-[var(--muted)] transition"
                         >
-                            <ChevronUp className="w-10 h-10 text-gray-400" />
+                            <ChevronUp className="w-10 h-10 text-[var(--muted)]" />
                         </button>
                         <button
                             onClick={next}
-                            className="p-2 rounded-full hover:bg-gray-200 transition"
+                            className="p-2 rounded-full hover:bg-[var(--muted)] transition"
                         >
-                            <ChevronDown className="w-10 h-10 text-gray-400" />
+                            <ChevronDown className="w-10 h-10 text-[var(--muted)]" />
                         </button>
                     </div>
 
                     {/* Wheel */}
-                    <div className="relative w-[340px] h-[240px] overflow-hidden flex flex-col items-center border-y border-gray-300">
+                    <div className="relative w-[340px] h-[240px] overflow-hidden flex flex-col items-center border-y border-[var(--border)]">
                         <motion.div
                             drag="y"
                             dragConstraints={{ top: 0, bottom: 0 }}
@@ -114,8 +116,8 @@ export default function Step3() {
                                             key={i}
                                             className={`flex items-center justify-center font-bold transition-all whitespace-nowrap ${
                                                 isActive
-                                                    ? "text-[#7A69B3] text-5xl scale-105"
-                                                    : "text-gray-400 opacity-50 text-3xl scale-95"
+                                                    ? "text-[var(--foreground)] text-5xl scale-105"
+                                                    : "text-[var(--muted)] opacity-50 text-3xl scale-95"
                                             }`}
                                             style={{ height: `${ITEM_HEIGHT}px` }}
                                         >
@@ -131,7 +133,7 @@ export default function Step3() {
                 {/* Submit */}
                 <button
                     onClick={handleSubmit}
-                    className="mt-12 px-6 py-3 rounded-full bg-black text-white text-lg font-semibold hover:bg-gray-800 transition"
+                    className="mt-12 px-6 py-3 rounded-full bg-[var(--primary)] text-[var(--primary-foreground)] text-lg font-semibold hover:opacity-90 transition"
                 >
                     submit ⏎
                 </button>
@@ -139,14 +141,14 @@ export default function Step3() {
                 <button
                     type="button"
                     onClick={handleUseAnotherAccount}
-                    className="text-black underline text-base hover:text-gray-700 mt-4 transition-colors"
+                    className="text-black underline text-base hover:text-gray-700 mt-4 transition-colors dark:text-[var(--foreground)] dark:hover:text-[var(--muted)]"
                 >
                     Use another email/account
                 </button>
             </div>
 
             {/* Footer */}
-            <div className="flex justify-end px-8 pb-4 text-sm gap-4 text-black font-medium">
+            <div className="flex justify-end px-8 pb-4 text-sm gap-4 text-[var(--foreground)] font-medium">
                 <span className="cursor-pointer hover:underline">support</span>
                 <span className="cursor-pointer hover:underline">help</span>
             </div>
