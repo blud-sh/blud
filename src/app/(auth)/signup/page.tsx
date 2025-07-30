@@ -11,11 +11,13 @@ import { ThemeProvider } from "@/components/shared/theme-provider"
 import { useTheme } from "next-themes"
 
 function ModeToggle() {
-    const { theme, setTheme } = useTheme();
-    const [mounted, setMounted] = React.useState(false);
+    const { theme, setTheme } = useTheme()
+    const [mounted, setMounted] = React.useState(false)
+
     React.useEffect(() => {
-        setMounted(true);
-    }, []);
+        setMounted(true)
+    }, [])
+
     return (
         <button
             aria-label="Toggle dark mode"
@@ -24,7 +26,7 @@ function ModeToggle() {
         >
             {mounted ? (theme === "dark" ? "🌙" : "☀️") : null}
         </button>
-    );
+    )
 }
 
 const SignupPage: React.FC = () => {
@@ -145,7 +147,9 @@ const SignupPage: React.FC = () => {
                     {/* Divider */}
                     <div className="flex items-center justify-center mt-8 mb-4 w-full text-[var(--muted)]">
                         <div className="w-[130px] h-px bg-[var(--border)]"></div>
-                        <span className="mx-3 text-sm text-[var(--foreground)]">or continue with</span>
+                        <span className="mx-3 text-sm text-[var(--foreground)]">
+                            or continue with
+                        </span>
                         <div className="w-[130px] h-px bg-[var(--border)]"></div>
                     </div>
                     {/* Google OAuth Button */}

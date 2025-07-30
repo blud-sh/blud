@@ -19,6 +19,7 @@ const steps = {
 
 export default function SignupFlowPage() {
     const step = useSignupStepStore((s) => s.step)
+    const setStep = useSignupStepStore((s) => s.setStep)
     const StepComponent = steps[step] || Step2
     const router = useRouter()
 
@@ -31,7 +32,6 @@ export default function SignupFlowPage() {
             } = await supabase.auth.getUser()
 
             console.log(user)
-            const setStep = useSignupStepStore((s) => s.setStep)
             if (user) {
                 setStep(3)
                 router.push("/signup/flow")
