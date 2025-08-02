@@ -19,6 +19,7 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "cmdk": "^1.0.0",
+    "emoji-picker-react": "^4.13.2",
     "framer-motion": "^11.18.2",
     "gsap": "^3.13.0",
     "input-otp": "^1.4.2",
