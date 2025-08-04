@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useState, Suspense } from "react"
 import { useRouter, useSearchParams } from "next/navigation"
 import Image from "next/image"
 import Link from "next/link"
@@ -13,7 +13,8 @@ import { InputOTP, InputOTPGroup, InputOTPSlot } from "@/components/ui/input-otp
 import { createClient } from "@/supabase/client"
 import config from "../../../../config"
 
-export default function LoginPage() {
+// Separate the component that uses useSearchParams
+function LoginContent() {
     const [activeTab, setActiveTab] = useState<"signin" | "signup" | "otp">("signin")
     const [email, setEmail] = useState("")
     const [isValidEmail, setIsValidEmail] = useState<boolean | null>(null)
@@ -48,7 +49,7 @@ export default function LoginPage() {
                 toast.success("OTP sent to your email!")
                 setActiveTab("otp")
             }
-        } catch (error) {
+        } catch {
             toast.error("Failed to send OTP")
         } finally {
             setIsSubmitting(false)
@@ -67,7 +68,7 @@ export default function LoginPage() {
                 toast.success("New OTP sent to your email!")
                 setOtpValue("")
             }
-        } catch (error) {
+        } catch {
             toast.error("Failed to resend OTP")
         } finally {
             setIsSubmitting(false)
@@ -85,7 +86,7 @@ export default function LoginPage() {
                 }
                 toast.success(result.success)
                 router.push(redirect || "/chatroom")
-            } catch (error) {
+            } catch {
                 toast.error("Invalid OTP. Please try again.")
                 setOtpValue("")
             } finally {
@@ -271,7 +272,7 @@ export default function LoginPage() {
                         Enter OTP
                     </h1>
                     <p className="text-lg text-gray-400 text-center mb-2">
-                        We've sent a verification code to
+                        We&apos;ve sent a verification code to
                     </p>
                     <p className="text-lg text-[#D9D9D9] font-semibold mb-12">{email}</p>
 
@@ -326,7 +327,7 @@ export default function LoginPage() {
                     )}
 
                     <div className="text-center">
-                        <p className="text-gray-400 mb-2">Didn't receive the code?</p>
+                        <p className="text-gray-400 mb-2">Didn&apos;t receive the code?</p>
                         <button
                             onClick={handleResendOtp}
                             disabled={isSubmitting}
@@ -338,5 +339,21 @@ export default function LoginPage() {
                 </div>
             )}
         </div>
+    )
+}
+
+function LoginFallback() {
+    return (
+        <div className="min-h-screen flex flex-col items-center justify-center bg-[#1C1B1A] text-white">
+            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#D9D9D9]"></div>
+        </div>
+    )
+}
+
+export default function LoginPage() {
+    return (
+        <Suspense fallback={<LoginFallback />}>
+            <LoginContent />
+        </Suspense>
     )
 }

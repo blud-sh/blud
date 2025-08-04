@@ -5,18 +5,19 @@ import { ArrowLeft, ChevronUp, ChevronDown } from "lucide-react"
 import { useRouter } from "next/navigation"
 import { motion } from "framer-motion"
 import { useSignupStepStore } from "../store"
-import { useTheme } from "next-themes"
+// import { useTheme } from "next-themes"
 const roles = ["student", "dropout", "alumni", "explorer"]
 const ITEM_HEIGHT = 80
 const OFFSET = roles.length
 export default function Step3() {
     const router = useRouter()
     const [index, setIndex] = useState(OFFSET)
-    const { theme } = useTheme();
+    // const { theme } = useTheme();
 
     const extendedRoles = [...roles, ...roles, ...roles]
 
-    const { setRole, nextStep, reset } = useSignupStepStore()
+    // const { setRole, nextStep, reset } = useSignupStepStore()
+    const { setRole, nextStep } = useSignupStepStore()
 
     const prev = () => setIndex((prev) => prev - 1)
     const next = () => setIndex((prev) => prev + 1)

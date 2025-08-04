@@ -3,7 +3,7 @@ import React, { useState } from "react"
 import {
     ArrowLeftIcon,
     ArrowRightIcon,
-    UserIcon,
+    // UserIcon,
     IdentificationBadgeIcon,
     IdentificationCardIcon,
 } from "@phosphor-icons/react"
@@ -51,7 +51,10 @@ export default function Step4() {
                 <div className="flex flex-col md:flex-row gap-6 w-full max-w-2xl mb-8 mx-auto">
                     {/* Name input */}
                     <div className="flex-1 flex flex-col">
-                        <label className="mb-2 font-medium text-2xl font-primary text-[var(--foreground)]" htmlFor="name">
+                        <label
+                            className="mb-2 font-medium text-2xl font-primary text-[var(--foreground)]"
+                            htmlFor="name"
+                        >
                             what is your name?
                         </label>
                         <div className="relative">
@@ -69,10 +72,13 @@ export default function Step4() {
                                     background: "var(--input)",
                                     border: "1px solid var(--border)",
                                     borderRadius: "15px",
-                                    ...(typeof window !== 'undefined' && document.documentElement.getAttribute('data-theme') === 'dark' ? {
-                                        background: "var(--bg-black)",
-                                        border: "1px solid var(--contrast)"
-                                    } : {})
+                                    ...(typeof window !== "undefined" &&
+                                    document.documentElement.getAttribute("data-theme") === "dark"
+                                        ? {
+                                              background: "var(--bg-black)",
+                                              border: "1px solid var(--contrast)",
+                                          }
+                                        : {}),
                                 }}
                                 placeholder="tobi henderson"
                             />
@@ -101,10 +107,13 @@ export default function Step4() {
                                     background: "var(--input)",
                                     border: "1px solid var(--border)",
                                     borderRadius: "15px",
-                                    ...(typeof window !== 'undefined' && document.documentElement.getAttribute('data-theme') === 'dark' ? {
-                                        background: "var(--bg-black)",
-                                        border: "1px solid var(--contrast)"
-                                    } : {})
+                                    ...(typeof window !== "undefined" &&
+                                    document.documentElement.getAttribute("data-theme") === "dark"
+                                        ? {
+                                              background: "var(--bg-black)",
+                                              border: "1px solid var(--contrast)",
+                                          }
+                                        : {}),
                                 }}
                                 placeholder="a.k.a tobi"
                             />
@@ -113,7 +122,10 @@ export default function Step4() {
                 </div>
                 {/* Bio textarea */}
                 <div className="w-full max-w-2xl flex flex-col mb-8 mx-auto">
-                    <label className="mb-2 font-medium text-2xl font-primary text-[var(--foreground)]" htmlFor="bio">
+                    <label
+                        className="mb-2 font-medium text-2xl font-primary text-[var(--foreground)]"
+                        htmlFor="bio"
+                    >
                         bio (flex about urself)
                     </label>
                     <textarea
@@ -125,10 +137,13 @@ export default function Step4() {
                             background: "var(--input)",
                             border: "1px solid var(--border)",
                             borderRadius: "15px",
-                            ...(typeof window !== 'undefined' && document.documentElement.getAttribute('data-theme') === 'dark' ? {
-                                background: "var(--bg-black)",
-                                border: "1px solid var(--contrast)"
-                            } : {})
+                            ...(typeof window !== "undefined" &&
+                            document.documentElement.getAttribute("data-theme") === "dark"
+                                ? {
+                                      background: "var(--bg-black)",
+                                      border: "1px solid var(--contrast)",
+                                  }
+                                : {}),
                         }}
                         placeholder="i did some cool shit bro…"
                     />

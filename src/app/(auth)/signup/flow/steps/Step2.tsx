@@ -5,23 +5,26 @@ import { ArrowLeft } from "lucide-react"
 import { useRouter } from "next/navigation"
 import { ArrowElbowRightUpIcon } from "@phosphor-icons/react"
 import { useSignupStepStore } from "../store"
-import { verifyOtp as serverVerifyOtp } from "@/actions/auth"
+// import { verifyOtp as serverVerifyOtp } from "@/actions/auth"
 import { createClient as createSupabaseClient } from "@/supabase/client"
 
 export default function Step2() {
     const router = useRouter()
     const [otp, setOtp] = useState(["", "", "", "", "", ""])
     const [active, setActive] = useState(0)
+
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     const inputRefs = Array.from({ length: 6 }, () => useRef<HTMLInputElement>(null))
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     const boxRefs = Array.from({ length: 6 }, () => useRef<HTMLDivElement>(null))
 
     const handleChange = (idx: number, val: string) => {
         // Only allow numbers, and handle paste/multi-char
-        let chars = val.replace(/[^0-9]/g, "").split("")
+        const chars = val.replace(/[^0-9]/g, "").split("")
         if (chars.length === 0) return
         const newOtp = [...otp]
         let nextIdx = idx
-        for (let c of chars) {
+        for (const c of chars) {
             if (nextIdx > 5) break
             newOtp[nextIdx] = c
             nextIdx++
@@ -55,7 +58,7 @@ export default function Step2() {
                 )
             }
         }
-    }, [active, otp])
+    }, [active, otp, boxRefs, inputRefs])
 
     const handleKeyDown = (idx: number, e: React.KeyboardEvent<HTMLInputElement>) => {
         if (e.key === "Backspace") {
@@ -153,7 +156,9 @@ export default function Step2() {
                                 onFocus={() => handleFocus(idx)}
                                 onPaste={handlePaste}
                                 className={`bg-transparent w-full h-full text-6xl text-center font-bold outline-none ${
-                                    active === idx ? "text-[var(--primary-foreground)]" : "text-[var(--foreground)]"
+                                    active === idx
+                                        ? "text-[var(--primary-foreground)]"
+                                        : "text-[var(--foreground)]"
                                 }`}
                                 style={{
                                     borderRadius: "9999px",

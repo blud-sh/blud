@@ -7,7 +7,7 @@ import { signIn } from "@/actions/auth"
 import Image from "next/image"
 import config from "../../../../config"
 import { createClient } from "@/supabase/client"
-import { ThemeProvider } from "@/components/shared/theme-provider"
+// import { ThemeProvider } from "@/components/shared/theme-provider"
 import { useTheme } from "next-themes"
 
 function ModeToggle() {
@@ -90,7 +90,7 @@ const SignupPage: React.FC = () => {
                 {/* Form Container */}
                 <div className="w-full max-w-2xl flex flex-col items-center justify-center mx-auto">
                     <h1 className="text-6xl font-primary font-semibold mb-16 whitespace-nowrap text-center text-[var(--foreground)]">
-                        Let's get started.
+                        Let&apos;s get started.
                     </h1>
                     <form
                         className="space-y-6 w-full flex flex-col items-center"
@@ -102,7 +102,7 @@ const SignupPage: React.FC = () => {
                                 htmlFor="email"
                                 className="block font-primary whitespace-nowrap text-[2rem] font-normal mb-2 mt-8 text-[var(--foreground)]"
                             >
-                                what's your email?
+                                what&apos;s your email?
                             </label>
                             <div className="relative">
                                 {/* Envelope Icon */}

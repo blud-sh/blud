@@ -39,7 +39,7 @@ export default function SignupFlowPage() {
         }
 
         check()
-    }, [])
+    }, [router, setStep])
 
     return (
         <div className="min-h-screen flex flex-col justify-between bg-gray-50">

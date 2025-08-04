@@ -27,7 +27,8 @@ interface SignupStepState {
 
 export const useSignupStepStore = create(
     persist<SignupStepState>(
-        (set, get) => ({
+        // (set, get) => ({
+        (set) => ({
             step: 2,
             email: "",
             role: "",
@@ -47,7 +48,10 @@ export const useSignupStepStore = create(
             setCollegeEmail: (collegeEmail) => set({ collegeEmail }),
             setGraduationYear: (graduationYear) => set({ graduationYear }),
             nextStep: () => set((state) => ({ step: (state.step + 1) as 2 | 3 | 4 | 5 | 6 })),
-            prevStep: () => set((state) => ({ step: (state.step > 2 ? (state.step - 1) : 2) as 2 | 3 | 4 | 5 | 6 })),
+            prevStep: () =>
+                set((state) => ({
+                    step: (state.step > 2 ? state.step - 1 : 2) as 2 | 3 | 4 | 5 | 6,
+                })),
             reset: () => {
                 set({
                     step: 2,
@@ -59,12 +63,12 @@ export const useSignupStepStore = create(
                     college: "",
                     collegeEmail: "",
                     graduationYear: "",
-                });
-                // Clear the persisted storage using the store instance 
+                })
+                // Clear the persisted storage using the store instance
                 // @ts-ignore
-                if (typeof (useSignupStepStore as any).persist?.clearStorage === 'function') {
+                if (typeof (useSignupStepStore as any).persist?.clearStorage === "function") {
                     // @ts-ignore
-                    (useSignupStepStore as any).persist.clearStorage();
+                    ;(useSignupStepStore as any).persist.clearStorage()
                 }
             },
         }),

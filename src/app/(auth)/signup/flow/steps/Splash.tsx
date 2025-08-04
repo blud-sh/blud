@@ -4,10 +4,10 @@ import React, { useEffect, useState } from "react"
 import { useRouter } from "next/navigation"
 import { SpinnerGap } from "@phosphor-icons/react"
 import { motion, AnimatePresence } from "framer-motion"
-import { useSignupStepStore } from "../store"
+// import { useSignupStepStore } from "../store"
 
 export default function Splash() {
-    const resetSignup = useSignupStepStore((s) => s.reset)
+    // const resetSignup = useSignupStepStore((s) => s.reset)
     const router = useRouter()
     const [showExit, setShowExit] = useState(false)
 
@@ -55,7 +55,10 @@ export default function Splash() {
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ delay: 1.2, duration: 0.6, ease: "easeOut" }}
                         >
-                            <SpinnerGap size={40} className="mt-12 animate-spin text-[var(--base)]" />
+                            <SpinnerGap
+                                size={40}
+                                className="mt-12 animate-spin text-[var(--base)]"
+                            />
                         </motion.div>
                     </motion.div>
                 )}

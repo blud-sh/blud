@@ -27,7 +27,7 @@ export default function Step5() {
     const { prevStep, nextStep, setCollege, setCollegeEmail, setGraduationYear } =
         useSignupStepStore()
     const [college, setCollegeLocal] = useState("")
-    const [collegeSearch, setCollegeSearch] = useState("")
+    // const [collegeSearch, setCollegeSearch] = useState("")
     const [collegeEmail, setCollegeEmailLocal] = useState("")
     const [graduationYear, setGraduationYearLocal] = useState("")
     const [collegeDropdown, setCollegeDropdown] = useState(false)
@@ -81,7 +81,10 @@ export default function Step5() {
                 </h1>
                 {/* College Dropdown */}
                 <div className="w-full max-w-2xl mb-8 mx-auto">
-                    <label className="mb-3 font-medium text-3xl font-primary text-[var(--foreground)]" htmlFor="college">
+                    <label
+                        className="mb-3 font-medium text-3xl font-primary text-[var(--foreground)]"
+                        htmlFor="college"
+                    >
                         which college are you from?
                     </label>
                     <div
@@ -112,10 +115,13 @@ export default function Step5() {
                                     background: "var(--input)",
                                     border: "1px solid var(--border)",
                                     borderRadius: "15px",
-                                    ...(typeof window !== 'undefined' && document.documentElement.getAttribute('data-theme') === 'dark' ? {
-                                        background: "var(--bg-black)",
-                                        border: "1px solid var(--contrast)"
-                                    } : {})
+                                    ...(typeof window !== "undefined" &&
+                                    document.documentElement.getAttribute("data-theme") === "dark"
+                                        ? {
+                                              background: "var(--bg-black)",
+                                              border: "1px solid var(--contrast)",
+                                          }
+                                        : {}),
                                 }}
                                 placeholder="Select your college"
                                 autoComplete="off"
@@ -195,15 +201,20 @@ export default function Step5() {
                                     background: "var(--input)",
                                     border: "1px solid var(--border)",
                                     borderRadius: "15px",
-                                    ...(typeof window !== 'undefined' && document.documentElement.getAttribute('data-theme') === 'dark' ? {
-                                        background: "var(--bg-black)",
-                                        border: "1px solid var(--contrast)"
-                                    } : {})
+                                    ...(typeof window !== "undefined" &&
+                                    document.documentElement.getAttribute("data-theme") === "dark"
+                                        ? {
+                                              background: "var(--bg-black)",
+                                              border: "1px solid var(--contrast)",
+                                          }
+                                        : {}),
                                 }}
                                 placeholder="enter your college email address here"
                             />
                             {collegeEmailError && (
-                                <p className="text-[var(--accent)] text-sm mt-2 ml-1">{collegeEmailError}</p>
+                                <p className="text-[var(--accent)] text-sm mt-2 ml-1">
+                                    {collegeEmailError}
+                                </p>
                             )}
                         </div>
                     </div>
@@ -237,10 +248,13 @@ export default function Step5() {
                                     border: "1px solid var(--border)",
                                     borderRadius: "9999px",
                                     height: "60px",
-                                    ...(typeof window !== 'undefined' && document.documentElement.getAttribute('data-theme') === 'dark' ? {
-                                        background: "var(--bg-black)",
-                                        border: "1px solid var(--contrast)"
-                                    } : {})
+                                    ...(typeof window !== "undefined" &&
+                                    document.documentElement.getAttribute("data-theme") === "dark"
+                                        ? {
+                                              background: "var(--bg-black)",
+                                              border: "1px solid var(--contrast)",
+                                          }
+                                        : {}),
                                 }}
                                 tabIndex={-1}
                             >
